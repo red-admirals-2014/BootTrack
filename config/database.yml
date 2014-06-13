@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  host: localhost
+  username:
+  password:
+  database: more_boottrack_dev
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  host: localhost
+  username:
+  password:
+  database: more_boottrack_test
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  host: localhost
+  username:
+  password:
+  database: more_boottrack
+  pool: 5
+  timeout: 5000
