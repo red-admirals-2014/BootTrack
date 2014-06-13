@@ -9,6 +9,7 @@ gem 'pg'
 
 group :development, :test do
   gem "better_errors"
+  gem 'jasmine'
 end
 
 group :test do
