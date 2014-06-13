@@ -31,16 +31,16 @@
 
 #####*Weekdays:* Work at DBC from 9am-6pm (longer in the evening if needed)#####
 
-#####**Weekends:** All members of BootTrack live in the East Bay, so rotating nights spent at each other's apartments (if we want to leave DBC) is a favorable option.#####
+#####*Weekends:* All members of BootTrack live in the East Bay, so rotating nights spent at each other's apartments (if we want to leave DBC) is a favorable option.#####
 
-#####**Lunches:** An hour total is preferred, with a 15 minute buffer. Lunch can be taken anytime it's needed, individually or as a group#####
+#####*Lunches:* An hour total is preferred, with a 15 minute buffer. Lunch can be taken anytime it's needed, individually or as a group#####
 
-#####**Breaks:** Take breaks anytime as needed, but let your pair and the group know. Stay accountable (as in, don't take off for an hour)#####
+#####*Breaks:* Take breaks anytime as needed, but let your pair and the group know. Stay accountable (as in, don't take off for an hour)#####
 
 #Roles#
 
-#####**Happiness Engineer:** Jordan#####
-#####**Stand-Up Coordinator:** Tiff#####
-#####**Time-out Cop:** All of us, depending on the situation#####
-#####**Wizard:** All of us, depending on the situation#####
+#####*Happiness Engineer:* Jordan#####
+#####*Stand-Up Coordinator:* Tiff#####
+#####*Time-out Cop:* All of us, depending on the situation#####
+#####*Wizard:* All of us, depending on the situation#####
 
