@@ -37,4 +37,10 @@
 
 #####Breaks: Take breaks anytime as needed, but let your pair and the group know. Stay accountable (as in, don't take off for an hour)#####
 
+#Roles#
+
+#####Happiness Engineer: Jordan#####
+#####Stand-Up Coordinator: Tiff#####
+#####Time-out Cop: All of us, depending on the situation#####
+#####Wizard: All of us, depending on the situation#####
 
