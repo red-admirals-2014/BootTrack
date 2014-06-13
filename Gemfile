@@ -7,6 +7,12 @@ gem 'rails', '3.2.18'
 
 gem 'pg'
 
+gem 'httparty'
+
+gem 'dbc-ruby'
+
+gem "binding_of_caller"
+
 group :development, :test do
   gem "better_errors"
 end
