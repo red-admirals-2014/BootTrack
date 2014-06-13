@@ -16,4 +16,5 @@ Page.prototype = {
  function test(e){
   e.preventDefault()
    //debugger
+   //$('form').serialize()
  }
