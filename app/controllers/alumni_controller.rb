@@ -3,6 +3,7 @@ class AlumniController < ApplicationController
   end
 
   def search
-    redirect_to 'index', :status => :ok
+    alumni = Alumni.all
+    render json: { alumni: alumni }.to_json, :status => :ok
   end
 end
