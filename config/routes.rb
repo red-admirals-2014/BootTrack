@@ -1,4 +1,5 @@
 BootTrack::Application.routes.draw do
+  root :to => 'alumni#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
