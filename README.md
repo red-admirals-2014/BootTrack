@@ -29,7 +29,7 @@
 
 #Scheduling#
 
-#####**Weekdays:** Work at DBC from 9am-6pm (longer in the evening if needed)#####
+#####*Weekdays:* Work at DBC from 9am-6pm (longer in the evening if needed)#####
 
 #####**Weekends:** All members of BootTrack live in the East Bay, so rotating nights spent at each other's apartments (if we want to leave DBC) is a favorable option.#####
 
