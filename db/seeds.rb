@@ -81,6 +81,13 @@ end
 
 
 
+# https://github.com/hexgnu/linkedin/blob/master/EXAMPLES.md
+# client.profile(:url => 'http://www.linkedin.com/in/netherland', :fields => headline/location:(name),first_name, last_name, specialties, picture_url, summary) - these are the fields we eventually want.
+
+# # provides the ability to access authenticated user's company field in the profile
+# user = client.profile(:fields => %w(positions))
+
+
 
 
 
