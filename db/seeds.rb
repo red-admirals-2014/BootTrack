@@ -19,19 +19,37 @@ puts Graduate.all.count
 puts Cohort.all.count
 
 
+all_grads = Graduate.all
 
-client = LinkedIn::Client.new('752jy5l9lpe28m', 'GcvQ6BiPEAST2Q1k')
+all_grads.each do |grad|
+  url = grad.linked_in
+  if url && url != ""
+    if !(url =~ /^https?:/i)
+      url = "http://" + url
+    end
+  else
+    url = nil
+  end
 
-request_token = client.request_token({}, :scope => "r_basicprofile")
+  client = LinkedIn::Client.new('752jy5l9lpe28m', 'GcvQ6BiPEAST2Q1k')
+  client.authorize_from_access("8d680cb1-b9d0-4d24-9ca6-af042547b435", "91acf96c-4d05-4024-8cac-f99dfa7e31b8")
+  new_info = client.profile(:url => url , :fields => ['headline', 'picture_url', 'location:(name)'] # this is where error would pop up
+  grad.update_attributes(employer: new_info.headline, location: new_info.location.name, picture: new_info.picture_url)
+end
 
-rtoken = request_token.token
-rsecret = request_token.secret
 
-pin = 27595
-client.authorize_from_request(rtoken, rsecret, pin)
-client.authorize_from_access("8d680cb1-b9d0-4d24-9ca6-af042547b435", "91acf96c-4d05-4024-8cac-f99dfa7e31b8")
-client.profile(:url => 'www.linkedin.com/pub/tiffany-kaiser/55/650/158/') # => in here we put the fields
-                                                                          # we want, as well
+
+
+
+# client = LinkedIn::Client.new('752jy5l9lpe28m', 'GcvQ6BiPEAST2Q1k') this one
+# request_token = client.request_token({}, :scope => "r_basicprofile"
+# rtoken = request_token.token
+# rsecret = request_token.secret
+# pin = 27595
+# client.authorize_from_request(rtoken, rsecret, pin)
+# client.authorize_from_access("8d680cb1-b9d0-4d24-9ca6-af042547b435", "91acf96c-4d05-4024-8cac-f99dfa7e31b8")  this one
+# client.profile(:url => 'http://www.linkedin.com/in/tiffanytkaiser/', :fields => ['headline', 'first_name', 'last_name', 'picture_url', 'location:(name)'] this one
+
 
 # Find all winter melt cohort and delete them. Loop through all linkedin urls in our database
 # to hit api.

@@ -7,6 +7,7 @@ gem 'rails', '3.2.18'
 
 gem 'pg'
 gem 'dbc-ruby'
+gem 'linkedin'
 
 group :development, :test do
   gem "better_errors"
