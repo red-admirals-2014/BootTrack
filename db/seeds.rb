@@ -1,6 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
+This file should contain all the record creation needed to seed the database with its default values.
+The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+
 grads = DBC::User.all
 
 
@@ -24,23 +24,32 @@ all_grads = Graduate.all
 all_grads.each do |grad|
   url = grad.linked_in
   if url && url != ""
+    url = url.slice(URI.regexp).gsub(/\/$/, "")
     if !(url =~ /^https?:/i)
       url = "http://" + url
+      grad.update_attributes(linked_in: url)
     end
   else
     url = nil
+    grad.update_attributes(linked_in: url)
   end
+end
 
+grads = Graduate.all
+
+grads.each do |grad|
+  url = grad.linked_in
   client = LinkedIn::Client.new('752jy5l9lpe28m', 'GcvQ6BiPEAST2Q1k')
   client.authorize_from_access("8d680cb1-b9d0-4d24-9ca6-af042547b435", "91acf96c-4d05-4024-8cac-f99dfa7e31b8")
+  sleep 1
   begin
     new_info = client.profile(:url => url , :fields => ['headline', 'picture_url', 'location:(name)'])
     grad.update_attributes(employer: new_info.headline, location: new_info.location.name, picture: new_info.picture_url)
   rescue StandardError => e
     p "Error: #{e}"
-  ensure
-    sleep 2
+    grad.update_attributes(employer: nil, location: nil, picture: nil)
   end
+   # grad.update_attributes(employer: new_info.headline, location: new_info.location.name, picture: new_info.picture_url)
 end
 
 
