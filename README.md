@@ -44,3 +44,5 @@
 #####*Time-out Cop:* All of us, depending on the situation#####
 #####*Wizard:* All of us, depending on the situation#####
 
+#Team Resources#
+[mustache docs](http://mustache.github.io/mustache.5.html)
