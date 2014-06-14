@@ -5,8 +5,8 @@ feature 'User browse' do
     pending
     it 'can click on location to see a drop down of NYC, SF, CHI' do
       visit root_path
-      select('San Francisco', from: 'location')
-      expect(page).to have_select('location', selected: 'San Francisco')
+      select('San Francisco', from: 'capmus')
+      expect(page).to have_select('capmus', selected: 'San Francisco')
       click_on 'Search'
       expect(page).to have_content 'Kelley Puckett'
     end

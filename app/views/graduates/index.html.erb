@@ -5,21 +5,19 @@
   <h1 data-comp="tag-line">Description text goes here.
   </h1>
   <div data-comp="search-container">
-    <form>
-      <select data-comp="campus" name="location" id="location">
-        <option selected="selected" value="default">Campus...</option>
-        <option value="chicago">Chicago</option>
-        <option value="new_york">New York</option>
-        <option value="san_francisco">San Francisco</option>
-      </select>
-      <select data-comp="year" name="year">
-        <option selected="selected" value="default">Year...</option>
-        <option value="2014">2014</option>
-        <option value="2013">2013</option>
-        <option value="2012">2012</option>
-      </select>
-      <input data-comp="button" type="submit" value="Search">
-    </form>
+  <input type="button" value="Campus" data-comp="button">
+    <ul data-comp="campus"> Campus
+      <li class="Campus">Chicago</li>
+      <li class="campus">New York</li>
+      <li class="campus">San Francisco</li>
+    </ul>
+    <input type="button" value="Year" data-comp="button">
+    <ul data-comp="year"> Year
+      <li class="hide">2014</li>
+      <li>2013</li>
+      <li>2012</li>
+    </ul>
+    <input type="button" value="submit" data-comp="button">
   </div>
 </div>
 <div data-comp='footer'>

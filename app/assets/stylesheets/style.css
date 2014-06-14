@@ -18,6 +18,7 @@ h1[data-comp="tag-line"]{
   color: beige;
 }
 div[data-comp="search-container"]{
+  display: inline-block;
   background: rgba(0,0,0,.5);
   width: 33%;
   padding: 1em;
@@ -41,4 +42,10 @@ select{
 }
 div[data-comp="footer"]{
   max-height: .5em;
+}
+ul{
+  text-align: left;
+}
+li{
+  list-style-type: none;
 }
