@@ -5,7 +5,7 @@ class CreateGraduates < ActiveRecord::Migration
       t.references :cohort
       t.string :name
       t.string :email
-      t.string :linked_in
+      t.text :linked_in
       t.timestamps
     end
   end

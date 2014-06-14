@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20140614002404) do
     t.integer  "cohort_id"
     t.string   "name"
     t.string   "email"
-    t.string   "linked_in"
+    t.text     "linked_in"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

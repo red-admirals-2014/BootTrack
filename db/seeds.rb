@@ -10,5 +10,5 @@
 @grads = Graduate.grad_name
 
 @grads.each do |grad|
-  Graduate.create(cohort_id: grad["cohort_id"], name: grad["name"], email: grad["email"], linked_in: grad["linked_in"])
+  Graduate.create(cohort_id: grad["cohort_id"], name: grad["name"], email: grad["email"], linked_in: grad["profile"]["linked_in"])
 end
