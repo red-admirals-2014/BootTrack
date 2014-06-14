@@ -6,6 +6,16 @@ $(document).ready(function(){
 function Search() {
 }
 
+var person = {
+  firstName: "Jordan",
+  lastName: "Kamin"
+};
+
+var template = "<h2>{{firstName}} {{lastName}}</h2>"
+var html = Mustache.to_html(template, person)
+
+
+
 Search.prototype = {
   start: function(){
     $('form').on('submit', this.getGraduates)
@@ -23,5 +33,5 @@ Search.prototype = {
 }
 
  function test(){
-  console.log("test")
+  $("[data-comp='footer']").html(html)
  }
