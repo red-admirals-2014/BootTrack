@@ -11,16 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140612233810) do
+ActiveRecord::Schema.define(:version => 20140614002404) do
+
+  create_table "cohorts", :force => true do |t|
+    t.string "location"
+    t.date   "start_date"
+  end
 
   create_table "graduates", :force => true do |t|
+    t.integer  "cohort_id"
     t.string   "name"
     t.string   "email"
-    t.string   "linked_in"
-    t.string   "campus"
-    t.date     "year"
-    t.string   "job_title"
-    t.string   "company"
+    t.text     "linked_in"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

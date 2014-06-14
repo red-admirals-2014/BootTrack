@@ -1,3 +1,6 @@
+require 'json'
+
 class Graduate < ActiveRecord::Base
-  # :name, :location, :year
+  attr_accessible :cohort_id, :name, :linked_in, :email
+  belongs_to :cohort
 end

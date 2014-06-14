@@ -6,6 +6,7 @@ gem 'rails', '3.2.18'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'dbc-ruby'
 
 group :development, :test do
   gem "better_errors"
