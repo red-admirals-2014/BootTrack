@@ -3,6 +3,10 @@ $(document).ready(function(){
   search.start();
 })
 
+function View(){
+
+}
+
 function Search() {
 }
 

@@ -13,19 +13,32 @@ div[data-comp="banner"]{
   padding: .5em;
 }
 h1[data-comp="tag-line"]{
-  font-size: 8em;
+  margin-top: 10%;
+  font-size: 2em;
   color: beige;
+}
+div[data-comp="search-container"]{
+  background: rgba(0,0,0,.5);
+  width: 33%;
+  padding: 1em;
+  margin-left: auto;
+  margin-right: auto;
 }
 input[data-comp="button"]{
   background-color: orange;
   border: none;
-  border-radius: 5px;
 }
 input[data-comp="button"]:hover{
   background-color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 0;
+
 }
 select{
-  color: red;
+  background-color: teal;
+  border-radius: 0;
+  border: none;
+}
+div[data-comp="footer"]{
+  max-height: .5em;
 }
