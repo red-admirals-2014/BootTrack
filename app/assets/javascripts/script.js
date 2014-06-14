@@ -8,19 +8,20 @@ function Page(){
 
 Page.prototype = {
   start: function(){
-    $('form').on('submit',test)
+    $('form').on('submit', this.getGraduates)
   },
-  getGraduates: function(){
-    var ajaxCall = $ajax({
+  getGraduates: function(e){
+    e.preventDefault
+    var ajaxCall = $.ajax({
       url: '/graduates/search',
       type: 'get',
       data: $('form').serialize()
     })
-    ajaxCall.done(test
+    ajaxCall.done(test)
+    ajaxCall.fail(test)
   }
 }
 
- function test(e){
-  e.preventDefault()
+ function test(){
   debugger
  }
