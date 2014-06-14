@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140614002404) do
+ActiveRecord::Schema.define(:version => 20140614195928) do
 
   create_table "cohorts", :force => true do |t|
     t.string "location"
@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(:version => 20140614002404) do
     t.text     "linked_in"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "employer"
+    t.string   "location"
+    t.string   "picture"
   end
 
 end
