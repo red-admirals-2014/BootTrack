@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  search = new Search
+  search = new Search()
   search.start();
 })
 
@@ -11,7 +11,7 @@ Search.prototype = {
     $('form').on('submit', this.getGraduates)
   },
   getGraduates: function(e){
-    e.preventDefault
+    e.preventDefault()
     var ajaxCall = $.ajax({
       url: '/graduates/search',
       type: 'get',
@@ -23,5 +23,5 @@ Search.prototype = {
 }
 
  function test(){
-  debugger
+  console.log("test")
  }

@@ -1,3 +1,4 @@
 config/databse.yml
 log/test.log
 log/developement.log
+tmp/
