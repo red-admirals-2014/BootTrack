@@ -33,8 +33,14 @@ all_grads.each do |grad|
 
   client = LinkedIn::Client.new('752jy5l9lpe28m', 'GcvQ6BiPEAST2Q1k')
   client.authorize_from_access("8d680cb1-b9d0-4d24-9ca6-af042547b435", "91acf96c-4d05-4024-8cac-f99dfa7e31b8")
-  new_info = client.profile(:url => url , :fields => ['headline', 'picture_url', 'location:(name)'] # this is where error would pop up
-  grad.update_attributes(employer: new_info.headline, location: new_info.location.name, picture: new_info.picture_url)
+  begin
+    new_info = client.profile(:url => url , :fields => ['headline', 'picture_url', 'location:(name)'])
+    grad.update_attributes(employer: new_info.headline, location: new_info.location.name, picture: new_info.picture_url)
+  rescue StandardError => e
+    p "Error: #{e}"
+  ensure
+    sleep 2
+  end
 end
 
 
