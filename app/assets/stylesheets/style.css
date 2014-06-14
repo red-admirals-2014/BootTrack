@@ -29,3 +29,23 @@ input[data-comp="button"]:hover{
 select{
   color: red;
 }
+
+.dropdown select {
+  background: transparent;
+  width: 240px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  height: 34px;
+  }
+
+.dropdown {
+  float: left;
+  text-align: center;
+  width: 240px;
+  height: 34px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}

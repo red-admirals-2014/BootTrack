@@ -5,7 +5,7 @@ class GraduatesController < ApplicationController
   def search
     campus = params[:campus]
     year = params[:year]
-    get_graduates(campus, year)
+    graduates = { graduates: 'Ale' }.to_json #get_graduates(campus, year)
     render json: { graduates: graduates }.to_json, :status => :ok
   end
 
