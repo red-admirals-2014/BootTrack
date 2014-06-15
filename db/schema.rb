@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140614195928) do
+ActiveRecord::Schema.define(:version => 20140615053056) do
 
   create_table "cohorts", :force => true do |t|
-    t.string "location"
+    t.string "campus"
     t.date   "start_date"
   end
 
