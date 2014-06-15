@@ -9,6 +9,7 @@ Search.prototype = {
   start: function(){
     $('form').on('submit', this.getGraduates)
   },
+
   getGraduates: function(e){
     e.preventDefault()
     var ajaxCall = $.ajax({
@@ -27,7 +28,7 @@ Search.prototype = {
  }
 
 function showGrads(res){
-  var grad_template = "<div class='card-container'>{{#graduates}}<div class='card'><h3>{{& name}}</h3>{{& campus}}<br>{{& s_date}}<br></div>{{/graduates}}</div>";
+  var grad_template = "<div class='card-container'>{{#graduates}}<div class='card'><h3>{{& name}}</h3>DBC {{& location}}<br>{{& start_date}}<br><button>Contact Me!</button></div>{{/graduates}}</div>";
   var html = Mustache.to_html(grad_template, res);
   $("[data-comp='main']").html(html)
 }

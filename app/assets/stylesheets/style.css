@@ -41,6 +41,7 @@ position: absolute;
 .card{
   float: left;
   width: 218px;
+  height: 400px;
   background-color: white;
   border-radius: 10px;
   border: 1px solid black;
