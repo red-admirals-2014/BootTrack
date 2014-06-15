@@ -30,7 +30,10 @@ input[data-comp="button"]:hover{
 div[data-comp="footer"]{
 position: absolute;
 }
-
+#map-canvas{
+  width: 100%;
+  height: 1000px;
+}
 
 .card-container{
   width: 1040px;

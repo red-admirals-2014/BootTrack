@@ -1,7 +1,7 @@
-$(document).ready(function(){
-  search = new Search()
-  search.start();
-})
+// $(document).ready(function(){
+//   search = new Search()
+//   search.start();
+// })
 
 function Search() {}
 
