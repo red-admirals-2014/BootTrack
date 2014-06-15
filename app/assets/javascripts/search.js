@@ -3,8 +3,7 @@ $(document).ready(function(){
   search.start();
 })
 
-function Search() {
-}
+function Search() {}
 
 Search.prototype = {
   start: function(){
@@ -17,7 +16,7 @@ Search.prototype = {
       type: 'get',
       data: $('form').serialize()
     })
-    ajaxCall.done(test)
+    ajaxCall.done(showGrads)
     ajaxCall.fail(test)
   }
 }
@@ -27,10 +26,8 @@ Search.prototype = {
   console.log("test")
  }
 
-var person = {
-    firstName: "Christophe",
-    lastName: "Coenraets",
-    blogURL: "http://coenraets.org"
-};
-var template = "<h1>{{firstName}} {{lastName}}</h1>Blog: {{blogURL}}";
-var html = Mustache.to_html(template, person);
+function showGrads(res){
+  var grad_template = "<div class='card-container'>{{#graduates}}<div class='card'><h3>{{& name}}</h3>{{& campus}}<br>{{& s_date}}<br></div>{{/graduates}}</div>";
+  var html = Mustache.to_html(grad_template, res);
+  $("[data-comp='main']").html(html)
+}
