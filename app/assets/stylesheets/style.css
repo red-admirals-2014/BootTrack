@@ -27,7 +27,7 @@ input[data-comp="button"]:hover{
   border: none;
   border-radius: 5px;
 }
-div[data-comp="footer"]{
+footer{
 position: absolute;
 }
 
@@ -46,7 +46,13 @@ position: absolute;
   border-radius: 10px;
   border: 1px solid black;
   margin: 20px;
-  box-shadow: 6px 6px 3px red;
+  box-shadow: 6px 6px 3px black;
+}
+
+.card img{
+  margin-top: 20px;
+  border: 2px solid grey;
+  border-radius: 5px;
 }
 
 .dropdown select {
