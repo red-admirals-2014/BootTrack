@@ -2,9 +2,18 @@
 <html>
 <head>
   <title>BootTrack</title>
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlOPEurfCION_NTr99jdYCY3hfbWlfI7g">
+  </script>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map-canvas { height: 100% }
+  </style>
+
 </head>
 <body>
 
