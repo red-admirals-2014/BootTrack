@@ -8,6 +8,8 @@ function Search() {}
 Search.prototype = {
   start: function(){
     $('form').on('submit', this.getGraduates)
+    $('[data-comp="topbar"]').on('click', '[data-comp="search-again"]', this.searchAgain)
+    $('[data-comp="topbar"]').on('click', '[data-comp="view-map"]',test)
   },
 
   getGraduates: function(e){
@@ -19,6 +21,11 @@ Search.prototype = {
     })
     ajaxCall.done(showGrads)
     ajaxCall.fail(test)
+  },
+  searchAgain: function(e){
+    e.preventDefault()
+    $(".card-container").html("")
+    $('.hidable').show()
   }
 }
 
@@ -28,7 +35,8 @@ Search.prototype = {
  }
 
 function showGrads(res){
-  var grad_template = "<div class='card-container'>{{#graduates}}<div class='card'><img src='{{picture}}'><h3>{{name}}</h3>DBC {{campus}}<br>{{start_date}}<br><button>Contact Me!</button></div>{{/graduates}}</div>";
+  $('.hidable').hide()
+  var grad_template = "{{#graduates}}<div class='card'><img src='{{picture}}'><h3>{{name}}</h3>DBC {{campus}}<br>{{start_date}}<br>{{employer}}<br>{{location}}<br><br><button>Contact Me!</button></div>{{/graduates}}";
   var html = Mustache.to_html(grad_template, res);
-  $("[data-comp='main']").html(html)
+  $(".card-container").html(html)
 }
