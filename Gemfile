@@ -9,6 +9,7 @@ gem 'pg'
 gem 'dbc-ruby'
 gem 'linkedin'
 gem 'mustache'
+gem 'gravatar-ultimate'
 
 group :development, :test do
   gem "better_errors"
