@@ -5,14 +5,45 @@ div[data-comp="topbar"]{
   background-color: black;
   color: white;
   line-height: 5em;
+  overflow: hidden;
+  font-size: 1.2em;
 }
+
+.blur{
+  position: fixed;
+  background:url('sf.jpg') no-repeat center;
+  background-size:cover;
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+  position:absolute;
+  width:100%;
+  height:100%;
+  z-index: -1;
+}
+
 div[data-comp="main"]{
-  background-color: grey;
-  height: 35em;
+  clear: both;
+  /*background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('sf.jpg');*/
+  /*background-image: url('sf.jpg');*/
+  height: 40em;
   text-align: center;
   padding: .5em;
   overflow: auto;
 }
+
+
+
+div[data-comp="search-container"]{
+  width: 800px;
+  height: 80px;
+  background-color: black;
+  margin: 0 auto;
+  background-color:rgba(10,10,10,0.5);
+}
+
 h1[data-comp="tag-line"]{
   font-size: 8em;
   color: beige;
@@ -27,7 +58,7 @@ input[data-comp="button"]:hover{
   border: none;
   border-radius: 5px;
 }
-div[data-comp="footer"]{
+footer{
 position: absolute;
 }
 #map-canvas{
@@ -44,12 +75,18 @@ position: absolute;
 .card{
   float: left;
   width: 218px;
-  height: 400px;
+  height: 320px;
   background-color: white;
   border-radius: 10px;
   border: 1px solid black;
   margin: 20px;
-  box-shadow: 6px 6px 3px red;
+  box-shadow: 6px 6px 3px black;
+}
+
+.card img{
+  margin-top: 20px;
+  border: 2px solid grey;
+  border-radius: 5px;
 }
 
 .dropdown select {
@@ -70,4 +107,30 @@ position: absolute;
   height: 34px;
   overflow: hidden;
   border: 1px solid #ccc;
+}
+
+ul.nav{
+  display: inline;
+  float: right;
+  margin: 0 40px;
+  padding: 0;
+}
+
+ul.nav li{
+  height: 200px;
+  width: 200px;
+  list-style-type: none;
+  display: inline;
+  margin-right: 5%;
+}
+
+ul.nav a{
+  color: white;
+  text-decoration: none;
+}
+
+ul.nav a:hover{
+  color: white;
+  text-decoration: none;
+  background-color: grey;
 }
