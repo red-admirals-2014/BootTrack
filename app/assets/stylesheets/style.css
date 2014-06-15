@@ -6,11 +6,12 @@ div[data-comp="topbar"]{
   color: white;
   line-height: 5em;
 }
-div[data-comp="banner"]{
+div[data-comp="main"]{
   background-color: grey;
   height: 35em;
   text-align: center;
   padding: .5em;
+  overflow: auto;
 }
 h1[data-comp="tag-line"]{
   font-size: 8em;
@@ -26,13 +27,30 @@ input[data-comp="button"]:hover{
   border: none;
   border-radius: 5px;
 }
-select{
-  color: red;
+div[data-comp="footer"]{
+position: absolute;
+}
+
+
+.card-container{
+  width: 1040px;
+  margin: 0 auto;
+}
+
+
+.card{
+  float: left;
+  width: 218px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin: 20px;
+  box-shadow: 6px 6px 3px red;
 }
 
 .dropdown select {
   background: transparent;
-  width: 240px;
+  width: 260px;
   padding: 5px;
   font-size: 16px;
   line-height: 1;
