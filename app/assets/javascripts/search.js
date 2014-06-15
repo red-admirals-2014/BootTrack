@@ -1,8 +1,3 @@
-$(document).ready(function(){
-  search = new Search()
-  search.start();
-})
-
 function Search() {}
 
 Search.prototype = {
@@ -22,13 +17,20 @@ Search.prototype = {
   }
 }
 
- function test(res){
+ function test(results){
   debugger
   console.log("test")
  }
 
-function showGrads(res){
-  var grad_template = "<div class='card-container'>{{#graduates}}<div class='card'><h3>{{name}}</h3>DBC {{campus}}<br>{{start_date}}<br><button>Contact Me!</button></div>{{/graduates}}</div>";
-  var html = Mustache.to_html(grad_template, res);
+// graduates, name, campus, and start_date are pulling
+// info from the database that is retrieved from
+// the DBC api. They are the names as dictated by
+// the DBC api.
+
+function showGrads(results){
+  var gradTemplate = "<div class='card-container'>{{#graduates}}<div class='card'><h3>{{name}}</h3>DBC {{campus}}<br>{{start_date}}<br><button>Contact Me!</button></div>{{/graduates}}</div>";
+  var html = Mustache.to_html(gradTemplate, results);
   $("[data-comp='main']").html(html)
 }
+
+

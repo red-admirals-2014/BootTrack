@@ -27,6 +27,10 @@ input[data-comp="button"]:hover{
   border: none;
   border-radius: 5px;
 }
+#map-canvas{
+  width: 50%;
+  height: 10em;
+}
 div[data-comp="footer"]{
 position: absolute;
 }
