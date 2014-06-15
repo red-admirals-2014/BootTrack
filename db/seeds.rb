@@ -11,7 +11,9 @@ grads.each do |grad|
   else
     url = nil
   end
-  Graduate.create(cohort_id: grad.cohort_id, name: grad.name, email: grad.email, linked_in: url)
+
+  image = Gravatar.new(grad.email).image_url
+  Graduate.create(cohort_id: grad.cohort_id, name: grad.name, email: grad.email, linked_in: url, picture: image)
 end
 
 
