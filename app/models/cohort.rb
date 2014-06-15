@@ -1,5 +1,5 @@
 class Cohort < ActiveRecord::Base
   has_many :graduates
-  attr_accessible :id, :location, :start_date
+  attr_accessible :id, :campus, :start_date
 
 end
