@@ -1,3 +1,5 @@
+# CR Move this to it's own class in lib and call from a cron or background job to get around rate limits.
+# Use .yml or .env files for keys!!!
 module ApplicationHelper
 
   def get_linked_in(grad)

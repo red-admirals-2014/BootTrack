@@ -1,3 +1,5 @@
+# Create a class to wrap around your API Calls. This class can live in the lib folder or in a concerns folder in your app/models or app/models  DCB_API.get_graduate(cohort) - if you put in lib be sure to change the application.rb file
+
 grads = DBC::User.all
 
 

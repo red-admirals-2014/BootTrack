@@ -1,6 +1,6 @@
 $(document).ready(function(){
   view = new View()
-  bootTrack = new BootTrack(view)
+  bootTrack = new BootTrack(view) //CR name as BootController
   bootTrack.start();
 })
 

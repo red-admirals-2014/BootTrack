@@ -25,6 +25,7 @@ module BootTrack
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
+    # CR - change this to config.autoload_paths += %W(#{config.root}/lib) if you put code in your lib.
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
