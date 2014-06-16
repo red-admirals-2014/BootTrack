@@ -152,6 +152,8 @@ ul.nav a:hover{
 
 #map-canvas{
   display: none;
+  margin: 0 auto;
+  z-index: 10;
 }
 
 /*Gayatri Sans Serif

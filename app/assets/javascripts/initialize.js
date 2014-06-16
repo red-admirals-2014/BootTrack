@@ -1,8 +1,13 @@
 $(document).ready(function(){
   view = new View()
-  bootTrack = new BootTrack(view)
-  bootTrack.start();
   map = new Map();
-  google.maps.event.addDomListener(window, 'load', map.initialize);
+  bootTrack = new BootTrack(view, map)
+  bootTrack.start();
 })
 
+function initMap(e){
+  e.preventDefault()
+
+  $('#map-canvas').show()
+  map.initialize()
+}
