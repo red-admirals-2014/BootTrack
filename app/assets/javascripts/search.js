@@ -13,6 +13,7 @@ BootTrack.prototype = {
     $('form').on('submit', this.getGraduates)
     $('[data-comp="topbar"]').on('click', '[data-comp="search-again"]', this.view.searchAgain)
     $('[data-comp="topbar"]').on('click', '[data-comp="view-map"]',test)
+    $('.card-container').on('click', this.view.contact, this.showForm)
   },
 
   getGraduates: function(e){
@@ -24,11 +25,17 @@ BootTrack.prototype = {
     })
     ajaxCall.done(view.showGrads);
     ajaxCall.fail(test);
+  },
+
+  showForm: function(){
+    view.displayForm();
   }
 
 }
 
-function View(){};
+function View(){
+  this.contact = $('.contact button')
+};
 
 View.prototype = {
   searchAgain: function(e){
@@ -39,11 +46,18 @@ View.prototype = {
   },
 
   showGrads: function(res){
-  $('[data-comp="topbar"]').show();
-  $('.hidable').hide();
-  var grad_template = "{{#graduates}}<div class='card'><img src='{{picture}}'><h3>{{name}}</h3>DBC {{campus}}<br>{{start_date}}<br>{{employer}}<br>{{location}}<br><br><button>Contact Me!</button></div>{{/graduates}}";
-  var html = Mustache.to_html(grad_template, res);
-  $(".card-container").html(html);
+    $('[data-comp="topbar"]').show();
+    $('.hidable').hide();
+    var grad_template = "{{#graduates}}<div class='card'><img src='{{picture}}'><h3>{{name}}</h3>DBC {{campus}}<br>{{start_date}}<br>{{employer}}<br>{{location}}<br><br><button class='contact'>Contact Me!</button></div>{{/graduates}}";
+    var html = Mustache.to_html(grad_template, res);
+    $(".card-container").html(html);
+  },
+
+  displayForm: function(){
+    $('.contacting').show();
+    var form_template = "Send them a message!<button class='x-button'>x</button><form class='contact-form'>Name:<input type='text' name='user_name'><br>Your email:<input type='text' name='user_email'><br>Message:<input type='text' name='message'></form>";
+    var content = Mustache.to_html(form_template)
+    $('.contacting').html(content);
   }
 };
 
