@@ -9,10 +9,10 @@ Map.prototype = {
     var map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
 
-    var contentTemplate = ""
+    var contentTemplate = "<h1>{{city}}</h1><p>{{bootTotal}} boots are in {{city}}</p> <a href='#'>Show boots</a>"
 
     var infowindow = new google.maps.InfoWindow({
-      content: "Boom!"
+      content: "Bangarang, Peter!"
     })
 
     var marker = new google.maps.Marker({
@@ -26,8 +26,8 @@ Map.prototype = {
   },
   showMap: function(e) {
     e.preventDefault()
-    $('#map-canvas').show(500)
-    // google.maps.event.trigger(map, 'resize');
-    // map.setZoom( map.getZoom() );
+    $('#map-canvas').show()
+    $(".card-container").html("")
+    map.initialize()
   }
 }

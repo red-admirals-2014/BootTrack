@@ -7,7 +7,7 @@ BootTrack.prototype = {
   start: function(){
     $('form').on('submit', this.getGraduates)
     $('[data-comp="topbar"]').on('click', '[data-comp="search-again"]', this.view.searchAgain)
-    $('[data-comp="topbar"]').on('click', '[data-comp="view-map"]', initMap)
+    $('[data-comp="topbar"]').on('click', '[data-comp="view-map"]', map.showMap)
   },
 
   getGraduates: function(e){
