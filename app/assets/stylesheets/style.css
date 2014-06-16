@@ -7,6 +7,7 @@ div[data-comp="topbar"]{
   line-height: 5em;
   overflow: hidden;
   font-size: 1.2em;
+  display: none;
 }
 
 .blur{
@@ -34,8 +35,6 @@ div[data-comp="main"]{
   overflow: auto;
 }
 
-
-
 div[data-comp="search-container"]{
   width: 800px;
   height: 80px;
@@ -44,19 +43,33 @@ div[data-comp="search-container"]{
   background-color:rgba(10,10,10,0.5);
 }
 
-h1[data-comp="tag-line"]{
-  font-size: 8em;
-  color: beige;
+h2[data-comp="app-name"]{
+  margin: 0;
+  font-size: 6em;
+  color: black;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
+
+span[data-comp="tag-line"]{
+  margin: 0;
+  font-size: 2em;
+  color: black;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
 input[data-comp="button"]{
-  background-color: orange;
-  border: none;
+  float: right;
+  background-color: #308446;
+  color: white;
+  border: 2px solid white;
   border-radius: 5px;
+  height: 34px;
+  width: 120px;
 }
 input[data-comp="button"]:hover{
-  background-color: white;
   border: none;
   border-radius: 5px;
+  height: 34px;
 }
 footer{
 position: absolute;
@@ -91,19 +104,20 @@ position: absolute;
   width: 260px;
   padding: 5px;
   font-size: 16px;
-  line-height: 1;
   border: 0;
   border-radius: 0;
   height: 34px;
+  margin-top: 24px;
   }
 
 .dropdown {
-  float: left;
+  display: inline-block;
   text-align: center;
   width: 240px;
   height: 34px;
   overflow: hidden;
   border: 1px solid #ccc;
+  margin: 24px 10px;
 }
 
 ul.nav{
@@ -131,3 +145,11 @@ ul.nav a:hover{
   text-decoration: none;
   background-color: grey;
 }
+
+/*Gayatri Sans Serif
+Farray
+Penna
+Simplifica
+Eunomia
+*/
+
