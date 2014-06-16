@@ -40,7 +40,7 @@ BootTrack.prototype = {
 
   sendEmail: function(e){
     e.preventDefault();
-    console.log("it! can! work!")
+    console.log('this can work!')
   }
 
 }
@@ -69,7 +69,7 @@ View.prototype = {
 
   displayForm: function(id){
     $('.contacting').show();
-    var form_template = "Send them a message!<button class='x-button'>x</button><form class='contact-form'>Name:<input type='text' name='user_name'><br>Your email:<input type='text' name='user_email'><br>Message:<input type='text' name='message'><input type='hidden'name='id' value="+id+"><br><input class='send-email' type='submit'></form>";
+    var form_template = "Send them a message!<button class='x-button'>x</button><form method='post' class='contact-form'>Name:<input type='text' name='user_name'><br>Your email:<input type='text' name='user_email'><br>Message:<input type='text' name='message'><input type='hidden'name='id' value="+id+"><br><input class='send-email' type='submit'></form>";
     var content = Mustache.to_html(form_template)
     $('.contacting').html(content);
   },
