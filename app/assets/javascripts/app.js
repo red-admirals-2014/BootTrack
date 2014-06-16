@@ -17,12 +17,27 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
 
+
+  var contentTemplate = ""
+
+   // var contentString = '<div id="content">'+
+   //    '<div id="siteNotice">'+
+   //    '</div>'+
+   //    '<h1 id="firstHeading" class="firstHeading">Hey Tiff</h1>'+
+   //    '<div id="bodyContent">'+
+   //    '<p><b>Look</b>, at what I can do!';
+
+  var infowindow = new google.maps.InfoWindow({
+      content: contentString
+  })
+
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(34.0000, -98.5795),
     map: map,
-    title:"Hello World!",
-    name: "Tiff",
-    cohort: "Radmiralz"
+    title: 'Uluru (Ayers Rock)',
+  });
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
   });
 }
 
