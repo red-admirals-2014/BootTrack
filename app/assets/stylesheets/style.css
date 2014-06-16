@@ -74,34 +74,29 @@ input[data-comp="button"]:hover{
   border-radius: .313em;
 }
 footer{
-position: absolute;
+  position: absolute;
 }
-#map-canvas{
-  width: 80%;
-  height: 1000px;
-}
-
 .card-container{
-  width: 1040px;
+  width: 75%;
   margin: 0 auto;
 }
 
 
 .card{
   float: left;
-  width: 218px;
-  height: 320px;
+  width: 13.625em;
+  height: 20em;
   background-color: white;
-  border-radius: 10px;
+  border-radius: .625em;
   border: 1px solid black;
-  margin: 20px;
-  box-shadow: 6px 6px 3px black;
+  margin: .625em;
+  box-shadow: .375em .375em .188em black;
 }
 
 .card img{
-  margin-top: 20px;
+  margin-top: .625em;
   border: 2px solid grey;
-  border-radius: 5px;
+  border-radius: .313em;
 }
 
 .dropdown select {
@@ -117,11 +112,11 @@ position: absolute;
 .dropdown {
   display: inline-block;
   text-align: center;
-  width: 240px;
-  height: 34px;
+  width: 15em;
+  height: 2.145em;
   overflow: hidden;
   border: 1px solid #ccc;
-  margin: 24px 10px;
+  margin: 1.5em .625em;
 }
 
 ul.nav{
@@ -132,8 +127,8 @@ ul.nav{
 }
 
 ul.nav li{
-  height: 200px;
-  width: 200px;
+  height: 12.5em;
+  width: 12.5em;
   list-style-type: none;
   display: inline;
   margin-right: 5%;
@@ -152,8 +147,11 @@ ul.nav a:hover{
 
 #map-canvas{
   display: none;
-  margin: 0 auto;
+/*  margin: 0 auto;*/
   z-index: 10;
+  width: 80%;
+  height: 600px;
+  margin: 0;
 }
 
 /*Gayatri Sans Serif
