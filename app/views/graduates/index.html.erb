@@ -8,12 +8,20 @@
 <div class="blur"></div>
 <div data-comp="main">
   <div class="contacting">
+    Send them a message!
+    <button class="x-button">x</button>
+    <form action="#" method="post" class="contact-form">
+    Name:<input type="text" name="user_name"><br>
+    Your email:<input type="text" name="user_email"><br>
+    Message:<input type="text" name="message">
+    <input type="hidden" name="id"><br>
+    <input class="send-email" type="submit"></form>
   </div>
   <div class="hidable">
     <h2 data-comp="app-name">BootTrack</h2>
-    <span data-comp="tag-line"> Wow much description, such understand.</span>
+    <span data-comp="tag-line">Wow much description, such understand.</span>
     <div data-comp="search-container">
-      <form>
+      <form class="index-search">
         <div data-comp="campus" class="dropdown">
         <select name="campus" id="campus">
           <option selected="selected" value="default">Campus...</option>

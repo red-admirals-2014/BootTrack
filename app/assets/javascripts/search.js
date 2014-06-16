@@ -10,12 +10,12 @@ function BootTrack(view) { //Main controller.
 
 BootTrack.prototype = {
   start: function(){
-    $('form').on('submit', this.getGraduates)
+    $('form.index-search').on('submit', this.getGraduates)
     $('[data-comp="topbar"]').on('click', '[data-comp="search-again"]', this.view.searchAgain)
     $('[data-comp="topbar"]').on('click', '[data-comp="view-map"]',test)
     $('.card-container').on('click', this.view.contact, this.showForm)
     $('.contacting').on('click', this.view.x_button, this.hideForm)
-    $('.contacting').on('click', this.view.email_button, this.sendEmail)
+    $('.contact-form').on('click', this.view.email_button, this.sendEmail)
   },
 
   getGraduates: function(e){
@@ -23,7 +23,7 @@ BootTrack.prototype = {
     var ajaxCall = $.ajax({
       url: '/graduates/search',
       type: 'get',
-      data: $('form').serialize()
+      data: $('form.index-search').serialize()
     })
     ajaxCall.done(view.showGrads);
     ajaxCall.fail(test);
@@ -39,11 +39,20 @@ BootTrack.prototype = {
   },
 
   sendEmail: function(e){
+    debugger
     e.preventDefault();
-    console.log('this can work!')
-  }
+      $.ajax({
+          type: 'POST',
+          url: '#',
+          data: $('form.contact-form').serialize(),
+          success: function (data) {
+              alert('ok');
+          }
+      });
+ },
 
 }
+
 
 function View(){
   this.contact = '.contact'
@@ -69,9 +78,7 @@ View.prototype = {
 
   displayForm: function(id){
     $('.contacting').show();
-    var form_template = "Send them a message!<button class='x-button'>x</button><form method='post' class='contact-form'>Name:<input type='text' name='user_name'><br>Your email:<input type='text' name='user_email'><br>Message:<input type='text' name='message'><input type='hidden'name='id' value="+id+"><br><input class='send-email' type='submit'></form>";
-    var content = Mustache.to_html(form_template)
-    $('.contacting').html(content);
+    $('form.contact-form').attr("value", id)
   },
 
   nixForm: function(){
