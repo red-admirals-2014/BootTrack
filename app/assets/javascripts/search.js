@@ -1,18 +1,13 @@
-$(document).ready(function(){
-  view = new View()
-  bootTrack = new BootTrack(view)
-  bootTrack.start();
-})
-
-function BootTrack(view) { //Main controller.
+function BootTrack(view, map) { //Main controller.
   this.view = view
+  this.map = map
 }
 
 BootTrack.prototype = {
   start: function(){
     $('form').on('submit', this.getGraduates)
     $('[data-comp="topbar"]').on('click', '[data-comp="search-again"]', this.view.searchAgain)
-    $('[data-comp="topbar"]').on('click', '[data-comp="view-map"]',test)
+    $('[data-comp="topbar"]').on('click', '[data-comp="view-map"]', map.showMap)
   },
 
   getGraduates: function(e){
@@ -33,6 +28,7 @@ function View(){};
 View.prototype = {
   searchAgain: function(e){
     e.preventDefault();
+    $('#map-canvas').hide()
     $(".card-container").html("")
     $('.hidable').show()
     $('[data-comp="topbar"]').hide();
