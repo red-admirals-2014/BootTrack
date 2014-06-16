@@ -150,6 +150,10 @@ ul.nav a:hover{
   background-color: grey;
 }
 
+#map-canvas{
+  display: none;
+}
+
 /*Gayatri Sans Serif
 Farray
 Penna
