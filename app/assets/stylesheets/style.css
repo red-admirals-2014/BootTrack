@@ -36,8 +36,9 @@ div[data-comp="main"]{
 }
 
 div[data-comp="search-container"]{
-  width: 800px;
-  height: 80px;
+  min-width: 713px;
+  max-width: 55%;
+  height: 5em;
   background-color: black;
   margin: 0 auto;
   background-color:rgba(10,10,10,0.5);
@@ -61,23 +62,22 @@ input[data-comp="button"]{
   float: right;
   background-color: #308446;
   color: white;
-  border: 2px solid white;
-  border-radius: 5px;
-  height: 34px;
-  width: 120px;
-  margin-top: 24px;
-  margin-right: 60px;
+  border: .15em solid white;
+  border-radius: .313em;
+  height: 2.125em;
+  width: 7.5em;
+  margin-top: 1.5em;
+  margin-right: 3.75em;
 }
 input[data-comp="button"]:hover{
   border: none;
-  border-radius: 5px;
-  height: 34px;
+  border-radius: .313em;
 }
 footer{
 position: absolute;
 }
 #map-canvas{
-  width: 100%;
+  width: 80%;
   height: 1000px;
 }
 

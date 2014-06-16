@@ -18,7 +18,6 @@ Map.prototype = {
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(34.0000, -98.5795),
       map: map,
-      title: 'Uluru (Ayers Rock)',
     });
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.open(map,marker);
