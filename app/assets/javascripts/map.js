@@ -37,13 +37,22 @@ Map.prototype = {
       });
      }
     },
-  showMap: function(e) {
-    e.preventDefault()
+  showMap: function(response) {
+    var locations = response.locations
+    var markers =[]
+    var geo = new google.maps.Geocoder();
+    for(var i = 1; i<locations.length; i++ ){
+      var loc = [locations[i].location]
+      geo.geocode({address: loc[0]},function(res,sta){
+        debugger
+        loc.push(res[0].geometry.location.k)
+        loc.push(res[0].geometry.location.a)
+        })
+    markers.push(loc)
+    }
+    console.log(markers)
     $('#map-canvas').show()
     $(".card-container").html("")
-    var markers = [["Bunny beach", 34.0000, -99.5795, 1],
-                  ["Heel beach", 33.0000, -98.5795, 2],
-                  ["Stallion beach", 35.0000, -98.5795, 3]]
     map.initialize(markers)
   }
 }
