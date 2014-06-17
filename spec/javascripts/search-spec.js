@@ -1,17 +1,17 @@
-describe("Search", function() {
+describe("controller", function() {
   beforeEach (function() {
-    var search = new search()
+    var bootTrack = new BootTrack()
   });
 
   it("should exist", function() {
-    expect(search.toBeDefined);
+    expect(bootTrack.toBeDefined);
   });
 
-  xit("should call the getGraduates function", function() {
+  it("should call the start function", function() {
 
-    spyOn(search, "getGraduates")
-    search.getGraduates()
+    spyOn(bootTrack, "start")
+    bootTrack.start()
     // $('form').submit()
-    expect(search.getGraduates).toHaveBeenCalled()
+    expect(bootTrack.start).toHaveBeenCalled()
   })
 });
