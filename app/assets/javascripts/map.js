@@ -7,7 +7,7 @@ Map.prototype = {
       ,
       center: new google.maps.LatLng(34.0000, -98.5795)
     };
-    var map = new google.maps.Map(document.getElementById('map-canvas'),
+    mapo = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
 
     var contentTemplate = "<h1>{{city}}</h1><p>{{bootTotal}} boots are in {{city}}</p> <a href='#'>Show boots</a>"
@@ -16,43 +16,41 @@ Map.prototype = {
       content: "Bangarang, Peter!"
     })
 
-     //new google.maps.Marker({
-    //   position: new google.maps.LatLng(34.0000, -98.5795),
-    //   map:map,
-    // });
-    // google.maps.event.addListener(marker, 'click', function() {
-    //   infowindow.open(map,marker);
-    // });
-    this.setMarkers(map,markers)
+    //this.setMarkers(map,markers)
   },
-  setMarkers: function (map, locations) {
-      for (var i = 0; i < locations.length; i++) {
-      var marker = locations[i];
-      var myLatLng = new google.maps.LatLng(marker[1], marker[2]);
-      var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          title: marker[0],
-          zIndex: marker[3]
-      });
-     }
-    },
+  // setMarkers: function (map, locations) {
+  //     for (var i = 0; i < locations.length; i++) {
+  //     var marker = locations[i];
+  //     var myLatLng = new google.maps.LatLng(marker[1], marker[2]);
+  //     var marker = new google.maps.Marker({
+  //         position: myLatLng,
+  //         map: mapo,
+  //         title: marker[0]
+  //     });
+  //    }
+  //   },
   showMap: function(response) {
-    var locations = response.locations
-    var markers =[]
-    var geo = new google.maps.Geocoder();
-    for(var i = 1; i<locations.length; i++ ){
-      var loc = [locations[i].location]
-      geo.geocode({address: loc[0]},function(res,sta){
-        debugger
-        loc.push(res[0].geometry.location.k)
-        loc.push(res[0].geometry.location.a)
-        })
-    markers.push(loc)
+    map.initialize()
+    locations = response.locations
+    geo = new google.maps.Geocoder();
+    for(var i = 1; i<locations.length; i++){
+     map.getPins(i)
     }
-    console.log(markers)
     $('#map-canvas').show()
     $(".card-container").html("")
-    map.initialize(markers)
+  },
+  getPins: function(i){
+    geo.geocode({address: locations[i].location},function(response,status){
+      if (status === "OK"){
+        var marker = new google.maps.Marker({
+        position: response[0].geometry.location,
+        title:response[0].formatted_address,
+        animation: google.maps.Animation.DROP,
+        map: mapo});
+      }
+      else{
+        console.log(status)
+      }
+    })
   }
 }
