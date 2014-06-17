@@ -1,13 +1,14 @@
 function BootTrack(view, map) { //Main controller.
   this.view = view
   this.map = map
+  this.currentSearch ={campus: '', year: ''}
 }
 
 BootTrack.prototype = {
   start: function(){
     $('form.index-search').on('submit', this.getGraduates)
     $('[data-comp="topbar"]').on('click', '[data-comp="search-again"]', this.view.searchAgain)
-    $('[data-comp="topbar"]').on('click', '[data-comp="view-map"]', map.showMap)
+    $('[data-comp="topbar"]').on('click', '[data-comp="view-map"]', this.getLocation)
     $('.card-container').on('click', this.view.contact, this.showForm)
     $('.contacting').on('click', this.view.x_button, this.hideForm)
     $('.contact-form').on('click', this.view.email_button, this.sendEmail)
@@ -23,7 +24,15 @@ BootTrack.prototype = {
     ajaxCall.done(view.showGrads);
     ajaxCall.fail(test);
   },
-
+  getLocation: function(e){
+    e.preventDefault()
+    var ajaxCall = $.ajax({
+      url: '/graduates/location',
+      type: 'get'
+    })
+    ajaxCall.done(map.showMap);
+    ajaxCall.fail(test);
+  },
   showForm: function(e){
     id = this.id
     view.displayForm(id);
@@ -79,10 +88,11 @@ View.prototype = {
   nixForm: function(){
     $('.contacting').hide();
   },
+
 };
 
 
- function test(res){
+ function test(response){
   console.log("You've hit the test function. Congratulations.")
   debugger
  }
