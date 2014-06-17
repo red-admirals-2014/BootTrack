@@ -24,4 +24,10 @@ describe Graduate do
     it {should allow_mass_assignment_of(:employer)}
     it {should allow_mass_assignment_of(:picture)}
   end
+
+  context "get_locations" do
+      it "should return a nested array containing a number and a location name" do
+        pending "this method's functionality is not implemented yet"
+      end
+  end
 end
