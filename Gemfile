@@ -4,6 +4,7 @@ gem 'rails', '3.2.18'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'pg'
 gem 'dbc-ruby'
@@ -14,6 +15,10 @@ gem 'gravatar-ultimate'
 group :development, :test do
   gem "better_errors"
   gem 'jasmine'
+end
+
+group :development do
+  gem "letter_opener"
 end
 
 group :test do

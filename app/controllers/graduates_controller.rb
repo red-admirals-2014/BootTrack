@@ -14,4 +14,10 @@ class GraduatesController < ApplicationController
     render json: {locations: locations}.to_json
   end
 
+  def email
+    @grad = Graduate.find(params["id"])
+    AlumMailer.contact_attempt(@grad, params["user_name"], params["user_email"], params["message"]).deliver
+    render :nothing => true, :status => 200, :content_type => 'text/html'
+  end
+
 end
