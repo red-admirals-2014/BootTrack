@@ -11,6 +11,8 @@ gem 'dbc-ruby'
 gem 'linkedin'
 gem 'mustache'
 gem 'gravatar-ultimate'
+gem 'whenever', :require => false
+gem 'timecop'
 
 group :development, :test do
   gem "better_errors"
