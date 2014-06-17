@@ -1,4 +1,4 @@
-describe("controller", function() {
+describe("Controller",function(){
   beforeEach (function() {
     var bootTrack = new BootTrack()
   });
@@ -18,6 +18,15 @@ describe("controller", function() {
     spyOn(bootTrack, "getGraduates")
     bootTrack.getGraduates()
     expect(bootTrack.getGraduates).toHaveBeenCalled()
-  })
+  });
 
+  it("should call the sendEmail function", function() {
+    spyOn(bootTrack, "sendEmail")
+    bootTrack.sendEmail()
+    expect(bootTrack.sendEmail).toHaveBeenCalled()
+  })
+  describe("getGraduates", function() {
+
+  })
 });
+
