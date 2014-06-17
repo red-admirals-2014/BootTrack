@@ -5,9 +5,3 @@ $(document).ready(function(){
   bootTrack.start();
 })
 
-function initMap(e){
-  e.preventDefault()
-
-  $('#map-canvas').show()
-  map.initialize()
-}
