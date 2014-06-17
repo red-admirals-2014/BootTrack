@@ -1,9 +1,15 @@
+set :output, "/log/cron_log.log"
+
 every :sunday, :at => '4:30 am' do
   rake "db:seed"
 end
 
 every :saturday, :at => '3:00 am' do
   runner "ApplicationHelper.update_all_linked_in"
+end
+
+every :tuesday, :at => '2:30 pm' do
+  runner "ApplicationHelper.test"
 end
 
 # Use this file to easily define all of your cron jobs.

@@ -24,4 +24,9 @@ module ApplicationHelper
     end
   end
 
+  def test
+    puts "test"
+    return "test"
+  end
+
 end
