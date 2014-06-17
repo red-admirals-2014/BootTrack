@@ -1,3 +1,4 @@
+set :environment, "development"
 set :output, "/log/cron_log.log"
 
 every :sunday, :at => '4:30 am' do
