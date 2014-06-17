@@ -13,7 +13,7 @@ gem 'gravatar-ultimate'
 
 group :development, :test do
   gem "better_errors"
-  gem 'jasmine'
+  gem "jasmine-rails"
 end
 
 group :test do

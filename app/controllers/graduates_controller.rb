@@ -6,7 +6,7 @@ class GraduatesController < ApplicationController
     campus = params[:campus]
     year = params[:year]
     graduates = get_graduates(campus, year)
-    render json: { graduates: graduates }.to_json, :status => :ok
+    render json: { graduates: graduates }.to_json, :status => :ok #this makes it so the bad path can't be tested
   end
 
   private
