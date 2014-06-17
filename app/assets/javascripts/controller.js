@@ -35,15 +35,15 @@ BootTrack.prototype = {
 
  sendEmail: function(e){
   e.preventDefault();
-  debugger
     var request = $.ajax({
         type: 'POST',
-        url: '#',
+        url: '/graduates/mail',
         data: $('form.contact-form').serialize(),
-        success: function (data) {     ////data is  this"user_name=derek&user_email=&message=&id=962"
+        success: function (data) {
             alert('ok');
         }
     });
+    view.nixForm();
  },
 
 }
