@@ -11,7 +11,13 @@ describe("controller", function() {
 
     spyOn(bootTrack, "start")
     bootTrack.start()
-    // $('form').submit()
     expect(bootTrack.start).toHaveBeenCalled()
+  });
+
+  it("should call the getGraduates function", function () {
+    spyOn(bootTrack, "getGraduates")
+    bootTrack.getGraduates()
+    expect(bootTrack.getGraduates).toHaveBeenCalled()
   })
+
 });
