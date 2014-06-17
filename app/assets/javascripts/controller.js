@@ -35,6 +35,7 @@ View.prototype = {
   },
 
   showGrads: function(res){
+    debugger
   $('[data-comp="topbar"]').show();
   $('.hidable').hide();
   var grad_template = "{{#graduates}}<div class='card'><img src='{{picture}}'><h3>{{name}}</h3>DBC {{campus}}<br>{{start_date}}<br>{{employer}}<br>{{location}}<br><br><button>Contact Me!</button></div>{{/graduates}}";

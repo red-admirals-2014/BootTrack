@@ -27,13 +27,13 @@ Map.prototype = {
   },
   setMarkers: function (map, locations) {
       for (var i = 0; i < locations.length; i++) {
-      var beach = locations[i];
-      var myLatLng = new google.maps.LatLng(beach[1], beach[2]);
+      var marker = locations[i];
+      var myLatLng = new google.maps.LatLng(marker[1], marker[2]);
       var marker = new google.maps.Marker({
           position: myLatLng,
           map: map,
-          title: beach[0],
-          zIndex: beach[3]
+          title: marker[0],
+          zIndex: marker[3]
       });
      }
     },
