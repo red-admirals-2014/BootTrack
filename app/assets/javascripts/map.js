@@ -7,7 +7,7 @@ Map.prototype = {
       ,
       center: new google.maps.LatLng(34.0000, -98.5795)
     };
-    var map = new google.maps.Map(document.getElementById('map-canvas'),
+    mapo = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
 
     var contentTemplate = "<h1>{{city}}</h1><p>{{bootTotal}} boots are in {{city}}</p> <a href='#'>Show boots</a>"
@@ -16,34 +16,41 @@ Map.prototype = {
       content: "Bangarang, Peter!"
     })
 
-     //new google.maps.Marker({
-    //   position: new google.maps.LatLng(34.0000, -98.5795),
-    //   map:map,
-    // });
-    // google.maps.event.addListener(marker, 'click', function() {
-    //   infowindow.open(map,marker);
-    // });
-    this.setMarkers(map,markers)
+    //this.setMarkers(map,markers)
   },
-  setMarkers: function (map, locations) {
-      for (var i = 0; i < locations.length; i++) {
-      var marker = locations[i];
-      var myLatLng = new google.maps.LatLng(marker[1], marker[2]);
-      var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          title: marker[0],
-          zIndex: marker[3]
-      });
-     }
-    },
-  showMap: function(e) {
-    e.preventDefault()
+  // setMarkers: function (map, locations) {
+  //     for (var i = 0; i < locations.length; i++) {
+  //     var marker = locations[i];
+  //     var myLatLng = new google.maps.LatLng(marker[1], marker[2]);
+  //     var marker = new google.maps.Marker({
+  //         position: myLatLng,
+  //         map: mapo,
+  //         title: marker[0]
+  //     });
+  //    }
+  //   },
+  showMap: function(response) {
+    map.initialize()
+    locations = response.locations
+    geo = new google.maps.Geocoder();
+    for(var i = 1; i<locations.length; i++){
+     map.getPins(i)
+    }
     $('#map-canvas').show()
     $(".card-container").html("")
-    var markers = [["Bunny beach", 34.0000, -99.5795, 1],
-                  ["Heel beach", 33.0000, -98.5795, 2],
-                  ["Stallion beach", 35.0000, -98.5795, 3]]
-    map.initialize(markers)
+  },
+  getPins: function(i){
+    geo.geocode({address: locations[i].location},function(response,status){
+      if (status === "OK"){
+        var marker = new google.maps.Marker({
+        position: response[0].geometry.location,
+        title:response[0].formatted_address,
+        animation: google.maps.Animation.DROP,
+        map: mapo});
+      }
+      else{
+        console.log(status)
+      }
+    })
   }
 }
