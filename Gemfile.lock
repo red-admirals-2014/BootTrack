@@ -28,6 +28,7 @@ GEM
     activesupport (3.2.18)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    addressable (2.3.6)
     arel (3.0.3)
     bcrypt (3.1.7)
     bcrypt-ruby (3.1.5)
@@ -56,6 +57,11 @@ GEM
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.3.5)
     diff-lcs (1.2.5)
+    dotenv (0.11.1)
+      dotenv-deployment (~> 0.0.2)
+    dotenv-deployment (0.0.2)
+    dotenv-rails (0.11.1)
+      dotenv (= 0.11.1)
     erubis (2.7.0)
     execjs (2.2.0)
     factory_girl (4.4.0)
@@ -83,6 +89,10 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    launchy (2.4.2)
+      addressable (~> 2.3)
+    letter_opener (1.2.0)
+      launchy (~> 2.2)
     linkedin (0.4.7)
       hashie (~> 2.0)
       multi_json (~> 1.0)
@@ -178,11 +188,13 @@ DEPENDENCIES
   database_cleaner
   dbc-ruby
   debugger
+  dotenv-rails
   factory_girl_rails
   faker
   gravatar-ultimate
   jasmine
   jquery-rails
+  letter_opener
   linkedin
   mustache
   pg
