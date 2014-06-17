@@ -26,7 +26,9 @@ describe("Controller",function(){
     expect(bootTrack.sendEmail).toHaveBeenCalled()
   })
   describe("getGraduates", function() {
-
+    spyOn(bootTrack, "getGraduates")
+    bootTrack.getGraduates()
+    expect(bootTrack.showGrads).toHaveBeenCalledWith()
   })
 });
 
