@@ -41,7 +41,7 @@ BootTrack.prototype = {
   sendEmail: function(e){
     debugger
     e.preventDefault();
-      $.ajax({
+      var request = $.ajax({
           type: 'POST',
           url: '#',
           data: $('form.contact-form').serialize(),
@@ -78,7 +78,7 @@ View.prototype = {
 
   displayForm: function(id){
     $('.contacting').show();
-    $('form.contact-form').attr("value", id)
+    $('input.has_id').attr("value", id)
   },
 
   nixForm: function(){
