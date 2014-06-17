@@ -7,10 +7,15 @@ class Graduate < ActiveRecord::Base
   include ApplicationHelper
 
   def self.get_graduates(campus, year)
-    graduates = Graduate.joins(:cohort).select("graduates.*, cohorts.start_date as start_date, cohorts.campus as campus").order('start_date DESC').first(300) if campus=='default' && year=='default'
-    graduates = Cohort.where(campus: campus).joins(:graduates).select('cohorts.*,graduates.name as name, graduates.picture as picture, graduates.employer as employer').order('start_date DESC').first(300) if campus!='default' && year=='default'
-    graduates = Cohort.joins(:graduates).select('cohorts.*,graduates.name as name, graduates.picture as picture, graduates.employer as employer').order('start_date DESC').where('extract(year  from start_date) = ?', year).limit(300) if campus=='default' && year!='default'
-    graduates = Cohort.joins(:graduates).select('cohorts.*,graduates.name as name, graduates.picture as picture, graduates.employer as employer').order('start_date DESC').where(campus: campus).where('extract(year  from start_date) = ?', year).limit(300) if campus!='default' && year!='default'
+
+    campus ||=Cohort.pluck(:campus).uniq #=['San Francisco','New York', 'Chicago'] - be careful of calling more than once.
+
+    year ||= [2012,2013,2014] #get from DB
+
+
+    graduates =  Graduate.joins(:cohort).where(cohorts: {campus:campus}).order('start_date DESC').where('extract(year from start_date) IN (?)', year).limit(300)
+    # Consider storing the year in your db?
+
     return graduates
   end
 
