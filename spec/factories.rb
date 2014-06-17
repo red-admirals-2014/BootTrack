@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :todo do
-    title { Faker::Lorem.word }
+  factory :graduate do
+    name { "Kelley Puckett" }
   end
 end
