@@ -47,12 +47,12 @@ describe("Controller",function(){
     bootTrack.getGraduates(event)
     expect(bootTrack.view.showGrads).toHaveBeenCalled()
     })
-    xit ("should not call the showGrads method on AJAX failure", function(){
+    it ("should call the test method on AJAX failure", function(){
     $.ajax = failingAJAX
-    spyOn(bootTrack.view, "showGrads")
+    spyOn(window, 'test')
       var event = { preventDefault: function(){}}
     bootTrack.getGraduates(event)
-    expect(bootTrack.view.test).toHaveBeenCalled()
+    expect(window.test).toHaveBeenCalled()
     })
   })
 });

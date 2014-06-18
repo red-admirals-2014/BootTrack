@@ -28,4 +28,3 @@ RSpec.configure do |config|
 
 end
 
-Capybara.default_wait_time = 1000
