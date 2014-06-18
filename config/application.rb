@@ -11,6 +11,9 @@ require "mustache"
 require "gravatar-ultimate"
 require "geocoder"
 
+config.assets.initialize_on_precompile = false
+
+
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
@@ -27,7 +30,6 @@ module BootTrack
 
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{config.root}/lib)
-    config.assets.initialize_on_precompile = false
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
