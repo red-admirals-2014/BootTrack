@@ -26,33 +26,26 @@ describe("Controller",function(){
     expect(bootTrack.sendEmail).toHaveBeenCalled()
   })
   describe("getGraduates", function() {
-    var successfulAJAX = function() {
-      return { done: function(callback) { callback() },
-               fail: function() { }
-             }
-      }
-      var failingAJAX = function() {
-      return { done: function() { },
-               fail: function(callback) { callback()}
-             }
-      }
+    mockAjax()
     beforeEach (function() {
 
-    var bootTrack = new BootTrack()
+      var bootTrack = new BootTrack()
     });
+
     it ("should call the showGrads method on AJAX success", function(){
-    $.ajax = successfulAJAX
-    spyOn(bootTrack.view, "showGrads")
+      spyOn(bootTrack.view, "showGrads")
       var event = { preventDefault: function(){}}
-    bootTrack.getGraduates(event)
-    expect(bootTrack.view.showGrads).toHaveBeenCalled()
+      bootTrack.getGraduates(event)
+      respondWithSuccess()
+      expect(bootTrack.view.showGrads).toHaveBeenCalled()
     })
+
     it ("should call the test method on AJAX failure", function(){
-    $.ajax = failingAJAX
-    spyOn(window, 'test')
+      spyOn(window, 'test')
       var event = { preventDefault: function(){}}
-    bootTrack.getGraduates(event)
-    expect(window.test).toHaveBeenCalled()
+      bootTrack.getGraduates(event)
+      respondWithError()
+      expect(window.test).toHaveBeenCalled()
     })
   })
 });
