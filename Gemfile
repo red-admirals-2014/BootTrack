@@ -18,7 +18,7 @@ gem 'geocoder'
 
 group :development, :test do
   gem "better_errors"
-  gem 'jasmine'
+  gem "jasmine-rails"
 end
 
 group :development do
@@ -27,7 +27,6 @@ end
 
 group :test do
   gem "rspec-rails", "~>2.14"
-
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
