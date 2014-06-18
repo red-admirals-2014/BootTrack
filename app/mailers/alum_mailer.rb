@@ -2,8 +2,6 @@ class AlumMailer < ActionMailer::Base
   default from: "BootsTrack@gmail.com"
 
   def contact_attempt(grad, name, email, message)
-    p "*" * 50
-    p grad
     @name = name
     @message = message
     @grad = grad
