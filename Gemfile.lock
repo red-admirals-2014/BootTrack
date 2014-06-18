@@ -154,6 +154,7 @@ GEM
       rspec-expectations (~> 2.99.0)
       rspec-mocks (~> 2.99.0)
     rubyzip (1.1.4)
+    sass (3.3.8)
     selenium-webdriver (2.42.0)
       childprocess (>= 0.5.0)
       multi_json (~> 1.0)
@@ -205,6 +206,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.18)
   rspec-rails (~> 2.14)
+  sass
   selenium-webdriver
   shoulda-matchers
   timecop
