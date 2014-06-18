@@ -79,9 +79,9 @@ input[data-comp="button"] {
   }
 }
 
-footer {
-  position: absolute;
-}
+// footer {
+//   position: absolute;
+// }
 
 .card-container {
   width: 75%;
@@ -175,6 +175,14 @@ ul.nav {
 
 #campus {
   font-family: Roboto;
+  font-weight: 100;
+  color: white;
+}
+
+#year {
+  font-family: Roboto;
+  font-weight: 100;
+  color: white;
 }
 
 /*Gayatri Sans Serif
