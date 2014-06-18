@@ -16,23 +16,11 @@ Map.prototype = {
       content: "Bangarang, Peter!"
     })
 
-    //this.setMarkers(map,markers)
   },
-  // setMarkers: function (map, locations) {
-  //     for (var i = 0; i < locations.length; i++) {
-  //     var marker = locations[i];
-  //     var myLatLng = new google.maps.LatLng(marker[1], marker[2]);
-  //     var marker = new google.maps.Marker({
-  //         position: myLatLng,
-  //         map: mapo,
-  //         title: marker[0]
-  //     });
-  //    }
-  //   },
+
   showMap: function(response) {
     map.initialize()
     locations = response.locations
-    geo = new google.maps.Geocoder();
     for(var i = 1; i<locations.length; i++){
      map.getPins(i)
     }
@@ -40,17 +28,12 @@ Map.prototype = {
     $(".card-container").html("")
   },
   getPins: function(i){
-    geo.geocode({address: locations[i].location},function(response,status){
-      if (status === "OK"){
+    //debugger
+        var myLatlng = new google.maps.LatLng(locations[i].latitude,locations[i].longitude)
         var marker = new google.maps.Marker({
-        position: response[0].geometry.location,
-        title:response[0].formatted_address,
+        position: myLatlng,
+        title:locations[i].location,
         animation: google.maps.Animation.DROP,
         map: mapo});
       }
-      else{
-        console.log(status)
-      }
-    })
   }
-}

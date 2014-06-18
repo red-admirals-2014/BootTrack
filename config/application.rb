@@ -9,6 +9,7 @@ require "sprockets/railtie"
 require "rails/test_unit/railtie"
 require "mustache"
 require "gravatar-ultimate"
+require "geocoder"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
