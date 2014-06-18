@@ -7,10 +7,10 @@ describe("Map", function() {
     expect(map.toBeDefined);
   });
 
-  it("should call the setMarkers function", function() {
-    spyOn(map, "setMarkers")
-    map.setMarkers()
-    expect(map.setMarkers).toHaveBeenCalled()
+  it("should call the getPins function", function() {
+    spyOn(map, "getPins")
+    map.getPins()
+    expect(map.getPins).toHaveBeenCalled()
   });
 
   it("should call the showMap function", function() {
