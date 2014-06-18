@@ -1,10 +1,10 @@
 development:
   adapter: postgresql
-  encoding: unicode
+  # encoding: unicode
   database: tracker_development
   pool: 5
   timeout: 5000
-  username: tracker
+  username: #tracker
   password:
 
 test:
@@ -12,7 +12,7 @@ test:
   database: tracker_test
   pool: 5
   timeout: 5000
-  username: tracker
+  username: #tracker
   password:
 
 production:
@@ -20,7 +20,7 @@ production:
   database: tracker_production
   pool: 5
   timeout: 5000
-  username: tracker
+  username: #tracker
   password:
 
 
