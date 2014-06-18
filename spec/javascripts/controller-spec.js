@@ -60,7 +60,14 @@ describe("Controller",function(){
       respondWithSuccess()
       expect(bootTrack.map.showMap).toHaveBeenCalled()
     })
-    it ("should call the test function on AJAX failure", function)
+
+    it ("should call the test function on AJAX failure", function(){
+      spyOn(window, "test")
+      var event = { preventDefault: function(){}}
+      bootTrack.getLocation(event)
+      respondWithError()
+      expect(window.test).toHaveBeenCalled()
+    })
   })
 
 });
