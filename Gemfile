@@ -13,6 +13,8 @@ gem 'mustache'
 gem 'gravatar-ultimate'
 gem 'whenever', :require => false
 gem 'timecop'
+gem 'geocoder'
+
 
 group :development, :test do
   gem "better_errors"

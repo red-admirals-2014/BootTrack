@@ -1,25 +1,37 @@
 require 'json'
 
 class Graduate < ActiveRecord::Base
-  attr_accessible :cohort_id, :name, :linked_in, :email, :location, :employer, :picture
+  include ApplicationHelper
+  attr_accessible :cohort_id, :name, :linked_in, :email, :location, :employer, :picture, :latitude, :longitude
   validates :email, uniqueness: true
   belongs_to :cohort
-  include ApplicationHelper
+  geocoded_by :location
+  after_validation :geocode#, :if => :location_changed?
 
   def self.get_graduates(campus, year)
-    graduates = Graduate.joins(:cohort).select("graduates.*, cohorts.start_date as start_date, cohorts.campus as campus").order('start_date DESC').first(300) if campus=='default' && year=='default'
-    graduates = Cohort.where(campus: campus).joins(:graduates).select('cohorts.*,graduates.name as name, graduates.picture as picture, graduates.employer as employer').order('start_date DESC').first(300) if campus!='default' && year=='default'
-    graduates = Cohort.joins(:graduates).select('cohorts.*,graduates.name as name, graduates.picture as picture, graduates.employer as employer').order('start_date DESC').where('extract(year  from start_date) = ?', year).limit(300) if campus=='default' && year!='default'
-    graduates = Cohort.joins(:graduates).select('cohorts.*,graduates.name as name, graduates.picture as picture, graduates.employer as employer').order('start_date DESC').where(campus: campus).where('extract(year  from start_date) = ?', year).limit(300) if campus!='default' && year!='default'
+    campus = nil if campus == 'default'
+    year = nil if year == 'default'
+    campus ||=Cohort.pluck(:campus).uniq
+    year||=Cohort.pluck('extract(year  from start_date)').uniq
+    graduates =  Graduate.joins(:cohort).where(cohorts: {campus:campus}).select("graduates.*, cohorts.start_date as start_date, cohorts.campus as campus").order('start_date DESC').where('extract(year from start_date) IN (?)', year).limit(300)
     return graduates
   end
 
   def self.get_locations(campus, year)
-    graduates = Graduate.select("location, count(name) as number").group(:location) if campus=='default' && year=='default'
-    graduates = Cohort.where(campus: campus).select("location, count(name) as number").group(:location)if campus!='default' && year=='default'
-    graduates = Cohort.joins(:graduates).where('extract(year  from start_date) = ?', year).select("location, count(name) as number").group(:location) if campus=='default' && year!='default'
-    graduates = Cohort.joins(:graduates).where(campus: campus).where('extract(year  from start_date) = ?', year).select("location, count(name) as number").group(:location) if campus!='default' && year!='default'
+    campus = nil if campus == 'default'
+    year = nil if year == 'default'
+    campus ||=Cohort.pluck(:campus).uniq
+    year||=Cohort.pluck('extract(year  from start_date)').uniq
+    graduates =  Graduate.joins(:cohort).where(cohorts: {campus:campus}).select('latitude,longitude,location, count(name) as grads_number').where('extract(year from start_date) IN (?)', year).group('latitude,longitude,location')
     return graduates
+  end
+
+  def self.update_geolocations
+    Graduate.all.each do |graduate|
+      graduate.save
+      p graduate.longitude
+    end
+
   end
 
 end
