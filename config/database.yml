@@ -1,28 +1,26 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: tracker_dev
+  database: tracker_development
   pool: 5
   timeout: 5000
-  username: boottracker
+  username: tracker
   password:
 
 test:
   adapter: postgresql
-  host: localhost
   database: tracker_test
   pool: 5
   timeout: 5000
-  username: boottracker
+  username: tracker
   password:
 
 production:
   adapter: postgresql
-  host: localhost
-  database: tracker
+  database: tracker_production
   pool: 5
   timeout: 5000
-  username: boottracker
+  username: tracker
   password:
 
 
