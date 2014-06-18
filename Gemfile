@@ -14,6 +14,7 @@ gem 'gravatar-ultimate'
 gem 'whenever', :require => false
 gem 'timecop'
 gem 'geocoder'
+gem 'rails_12factor', group: :production
 
 
 group :development, :test do
