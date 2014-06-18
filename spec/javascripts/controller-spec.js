@@ -28,11 +28,10 @@ describe("Controller",function(){
   describe("getGraduates", function() {
     mockAjax()
     beforeEach (function() {
-
       var bootTrack = new BootTrack()
     });
 
-    it ("should call the showGrads method on AJAX success", function(){
+    it ("should call the showGrads function on AJAX success", function(){
       spyOn(bootTrack.view, "showGrads")
       var event = { preventDefault: function(){}}
       bootTrack.getGraduates(event)
@@ -40,7 +39,7 @@ describe("Controller",function(){
       expect(bootTrack.view.showGrads).toHaveBeenCalled()
     })
 
-    it ("should call the test method on AJAX failure", function(){
+    it ("should call the test function on AJAX failure", function(){
       spyOn(window, 'test')
       var event = { preventDefault: function(){}}
       bootTrack.getGraduates(event)
@@ -48,6 +47,22 @@ describe("Controller",function(){
       expect(window.test).toHaveBeenCalled()
     })
   })
+  describe("getLocation", function(){
+    mockAjax()
+    beforeEach (function(){
+      var bootTrack = new BootTrack()
+    });
+
+    it ("should call the showMap function on AJAX success", function(){
+      spyOn(bootTrack.map, "showMap")
+      var event = { preventDefault: function(){}}
+      bootTrack.getLocation(event)
+      respondWithSuccess()
+      expect(bootTrack.map.showMap).toHaveBeenCalled()
+    })
+    it ("should call the test function on AJAX failure", function)
+  })
+
 });
 
 
