@@ -16,6 +16,7 @@ BootTrack.prototype = {
 
   getGraduates: function(e){
     e.preventDefault()
+
     var ajaxCall = $.ajax({
       url: '/graduates/search',
       type: 'get',
@@ -94,7 +95,7 @@ View.prototype = {
 
  function test(response){
   console.log("You've hit the test function. Congratulations.")
-  debugger
+
  }
 
 
