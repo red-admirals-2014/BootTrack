@@ -20,6 +20,24 @@ describe("Controller",function(){
     expect(bootTrack.getGraduates).toHaveBeenCalled()
   });
 
+  it("should call the getLocation function", function () {
+    spyOn(bootTrack, "getLocation")
+    bootTrack.getLocation()
+    expect(bootTrack.getLocation).toHaveBeenCalled()
+  });
+
+  it ("should call the showForm function", function() {
+    spyOn(bootTrack, "showForm")
+    bootTrack.showForm()
+    expect(bootTrack.showForm).toHaveBeenCalled()
+  })
+
+  it ("should call the hideForm function", function() {
+    spyOn(bootTrack, "hideForm")
+    bootTrack.hideForm()
+    expect(bootTrack.hideForm).toHaveBeenCalled()
+  })
+
   it("should call the sendEmail function", function() {
     spyOn(bootTrack, "sendEmail")
     bootTrack.sendEmail()
@@ -27,10 +45,6 @@ describe("Controller",function(){
   })
   describe("getGraduates", function() {
     mockAjax()
-    beforeEach (function() {
-      var bootTrack = new BootTrack()
-    });
-
     it ("should call the showGrads function on AJAX success", function(){
       spyOn(bootTrack.view, "showGrads")
       var event = { preventDefault: function(){}}
@@ -49,10 +63,6 @@ describe("Controller",function(){
   })
   describe("getLocation", function(){
     mockAjax()
-    beforeEach (function(){
-      var bootTrack = new BootTrack()
-    });
-
     it ("should call the showMap function on AJAX success", function(){
       spyOn(bootTrack.map, "showMap")
       var event = { preventDefault: function(){}}
@@ -68,8 +78,17 @@ describe("Controller",function(){
       respondWithError()
       expect(window.test).toHaveBeenCalled()
     })
-  })
 
-});
+
+  })
+  describe("showForm", function(){
+    it ("should call the displayForm function", function(){
+      spyOn(bootTrack, "showForm")
+      expect(bootTrack.showForm).toHaveBeenCalled
+    })
+  })
+})
+
+
 
 
