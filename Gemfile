@@ -27,7 +27,6 @@ end
 
 group :test do
   gem "rspec-rails", "~>2.14"
-
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
