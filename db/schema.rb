@@ -11,11 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140615053056) do
+ActiveRecord::Schema.define(:version => 20140617235659) do
 
   create_table "cohorts", :force => true do |t|
     t.string "campus"
     t.date   "start_date"
+  end
+
+  create_table "geolocations", :force => true do |t|
+    t.string "location_string"
+    t.float  "latitude"
+    t.float  "longitude"
   end
 
   create_table "graduates", :force => true do |t|
@@ -28,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20140615053056) do
     t.string   "employer"
     t.string   "location"
     t.string   "picture"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
 end
