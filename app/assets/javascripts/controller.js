@@ -28,6 +28,7 @@ BootTrack.prototype = {
     ajaxCall.done(view.showGrads);
     ajaxCall.fail(test);
   },
+
   getLocation: function(e){
     e.preventDefault()
     var ajaxCall = $.ajax({
@@ -37,6 +38,7 @@ BootTrack.prototype = {
     ajaxCall.done(map.showMap);
     ajaxCall.fail(test);
   },
+
   showForm: function(e){
     id = this.id
     view.displayForm(id);
@@ -47,37 +49,36 @@ BootTrack.prototype = {
     view.displayMapForm(id);
   },
 
-   hideForm: function(){
+  hideForm: function(){
     view.nixForm();
   },
 
- sendEmail: function(e){
-  e.preventDefault();
-    var request = $.ajax({
+  sendEmail: function(e){
+    e.preventDefault();
+      var request = $.ajax({
         type: 'POST',
-        url: '/graduates/mail',
+         url: '/graduates/mail',
         data: $('form.contact-form').serialize(),
         success: function (data) {
-            alert('Your email has been sent!');
+             alert('Your email has been sent!');
         }
     });
     view.nixForm();
- },
+  },
 
- sendEmailFromMap: function(e){
-  debugger
-  e.preventDefault();
-    var request = $.ajax({
-          type: 'POST',
-          url: '/graduates/mail',
-          data: $('form.contact-form2').serialize(),
-          success: function (data) {
-              alert('Your email has been sent!');
-          }
-    });
-    view.nixForm();
- }
-
+  sendEmailFromMap: function(e){
+    debugger
+    e.preventDefault();
+      var request = $.ajax({
+            type: 'POST',
+            url: '/graduates/mail',
+            data: $('form.contact-form2').serialize(),
+            success: function (data) {
+                alert('Your email has been sent!');
+            }
+      });
+      view.nixForm();
+  }
 }
 
 function View(){
@@ -127,7 +128,7 @@ View.prototype = {
 
  function test(response){
   console.log("You've hit the test function. Congratulations.")
-  debugger
+  //debugger
  }
 
 

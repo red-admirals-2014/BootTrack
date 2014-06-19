@@ -30,4 +30,17 @@ class Graduate < ActiveRecord::Base
     Graduate.joins(:cohort).where(location: location).select("graduates.*, cohorts.start_date as start_date, cohorts.campus as campus").order('start_date DESC').limit(100)
   end
 
+  def self.clear_future
+    counter = 0
+    graduates = Graduate.joins(:cohort).select('graduates.id, extract(year from start_date) as year, extract(month from start_date) as month')
+    graduates.each do |graduate|
+      if graduate.year == "#{Time.new.year}" && graduate.month > "#{Time.new.month - 2}"
+        Graduate.find(graduate.id).delete
+        counter+=1
+      end
+    end
+    Graduate.find_by_name("dummy").delete
+    p counter
+  end
+
 end

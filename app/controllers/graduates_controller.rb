@@ -28,7 +28,7 @@ class GraduatesController < ApplicationController
   end
 
   def update
-    if params[:key]== 'ohcaptainmycaptain'
+    if params[:key] == 'ohcaptainmycaptain'
       render :text => "seeding"
       ApplicationHelper.update_all_linked_in
     else

@@ -10,9 +10,6 @@ Map.prototype = {
     bootMap = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
 
-
-    var infowindow = new google.maps.InfoWindow()
-
   },
 
   showMap: function(response) {
