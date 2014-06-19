@@ -35,11 +35,6 @@ Map.prototype = {
         content: locations[i].location+', Number of Boots: '+locations[i].grads_number
       }).open(bootMap,marker);
     });
-    // google.maps.event.addListener(marker, 'click', function() {
-    //   new google.maps.InfoWindow({
-    //     content: locations[i].location+', Number of Boots: '+locations[i].grads_number
-    //   }).open(bootMap,marker);
-    // });
   },
   getGraduatesByLocation: function(response, location){
     var ajaxCall = $.ajax({
@@ -51,10 +46,6 @@ Map.prototype = {
     ajaxCall.fail(test);
   },
   showMapCards: function(response){
-    // debugger
-    // new google.maps.InfoWindow({
-    //   content: response.graduates[0].location+', # of Boots: '+response.graduates.length
-    // }).open(bootMap,marker)
     $('.map-card-container').show()
     var grad_template = "{{#graduates}}<div class='card'><img src='{{picture}}'><h3>{{name}}</h3>DBC {{campus}}<br>{{start_date}}<br>{{employer}}<br>{{location}}<br><br><button id={{id}} class='contact'>Contact Me!</button></div>{{/graduates}}";
     var html = Mustache.to_html(grad_template, response);
