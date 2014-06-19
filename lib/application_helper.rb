@@ -33,11 +33,6 @@ module ApplicationHelper
       location.gsub!(/(G|o)ther/,'')
   end
 
-  def test
-    puts "test"
-    return "test"
-  end
-
 end
 
 

@@ -27,7 +27,7 @@ BootTrack.prototype = {
   getLocation: function(e){
     e.preventDefault()
     var ajaxCall = $.ajax({
-      url: '/graduates/location',
+      url: '/graduates/locations',
       type: 'get'
     })
     ajaxCall.done(map.showMap);
