@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140617235659) do
+ActiveRecord::Schema.define(:version => 20140618182432) do
 
   create_table "cohorts", :force => true do |t|
     t.string "campus"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20140617235659) do
     t.string   "picture"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "title"
   end
 
 end
