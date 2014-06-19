@@ -2,9 +2,11 @@ language: ruby
 rvm:
   - 2.0.0
 
+
 # Set up database
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
+  - bundle exec rake db:migrate
 # You may need this for rails 3.2 applications
   - bundle exec rake db:test:prepare
