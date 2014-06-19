@@ -35,5 +35,10 @@ Map.prototype = {
         title:locations[i].location,
         animation: google.maps.Animation.DROP,
         map: mapo});
+
+        google.maps.event.addListener(marker, 'click', function() {
+        mapo.setZoom(8);
+        mapo.setCenter(marker.getPosition());
+  });
       }
   }
