@@ -16,17 +16,12 @@ module ApplicationHelper
   end
 
   def update_all_linked_in
-    Graduate.all.each do |grad|
+    Graduate.find_each do |grad|
       unless grad.linked_in == nil
         ApplicationHelper.get_linked_in(grad)
         sleep 2
       end
     end
-  end
-
-  def test
-    puts "test"
-    return "test"
   end
 
 end

@@ -7,14 +7,11 @@ Map.prototype = {
       ,
       center: new google.maps.LatLng(34.0000, -98.5795)
     };
-    mapo = new google.maps.Map(document.getElementById('map-canvas'),
+    bootMap = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
 
-    var contentTemplate = "<h1>{{city}}</h1><p>{{bootTotal}} boots are in {{city}}</p> <a href='#'>Show boots</a>"
 
-    var infowindow = new google.maps.InfoWindow({
-      content: "Bangarang, Peter!"
-    })
+    var infowindow = new google.maps.InfoWindow()
 
   },
 
@@ -28,12 +25,22 @@ Map.prototype = {
     $(".card-container").html("")
   },
   getPins: function(i){
-    //debugger
         var myLatlng = new google.maps.LatLng(locations[i].latitude,locations[i].longitude)
         var marker = new google.maps.Marker({
         position: myLatlng,
         title:locations[i].location,
         animation: google.maps.Animation.DROP,
-        map: mapo});
-      }
+        map: bootMap});
+        google.maps.event.addListener(marker, 'click',map.getGraduatesByLocation);
+  },
+  getGraduatesByLocation: function(){
+    var ajaxCall = $.ajax({
+      url: '/graduates/by_location',
+      type: 'get',
+      //data:
+    })
+    ajaxCall.done(test);
+    ajaxCall.fail(test);
+  }
+
   }
