@@ -100,13 +100,14 @@ input[data-comp="button"] {
 
 .map-card-container {
   width: 20%;
+  height: 600px;
   margin: 0;
   position: fixed;
   right: 0;
   top: 6em;
   z-index: 10;
   background-color: red;
-  overflow: none;
+  overflow: scroll;
   display: none;
 }
 
@@ -221,17 +222,6 @@ ul.nav {
   color: white;
 }
 
-
-
-
-
-
-
-
-
-
-
-/* Basic Grey */
 .contacting {
   display:none;
   position: absolute;

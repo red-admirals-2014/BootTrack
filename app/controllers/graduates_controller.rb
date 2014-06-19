@@ -22,6 +22,7 @@ class GraduatesController < ApplicationController
   end
 
   def by_location
+    location = (params[:location]).gsub!(/, Number of Boots: .*/, '')
     graduates = Graduate.by_location(params[:location])
     render json: {graduates: graduates}
   end

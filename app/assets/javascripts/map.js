@@ -28,7 +28,9 @@ Map.prototype = {
         var myLatlng = new google.maps.LatLng(locations[i].latitude,locations[i].longitude)
         var marker = new google.maps.Marker({
         position: myLatlng,
-        tittle: locations[i].location+', Number of Boots: '+locations[i].grads_number,
+        location: locations[i].location,
+        numBoots: locations[i].grads_number,
+        title: locations[i].location+', Number of Boots: '+locations[i].grads_number,
         animation: google.maps.Animation.DROP,
         map: bootMap});
         google.maps.event.addListener(marker, 'click',map.getGraduatesByLocation);
@@ -37,12 +39,16 @@ Map.prototype = {
     var ajaxCall = $.ajax({
       url: '/graduates/by_location',
       type: 'get',
-      //data:
+      data: "location="+this.title
     })
-    ajaxCall.done(test);
+    ajaxCall.done(map.showMapCards);
     ajaxCall.fail(test);
   },
   showMapCards: function(response){
-    $()
+    $('.map-card-container').show()
+    var grad_template = "{{#graduates}}<div class='card'><img src='{{picture}}'><h3>{{name}}</h3>DBC {{campus}}<br>{{start_date}}<br>{{employer}}<br>{{location}}<br><br><button id={{id}} class='contact'>Contact Me!</button></div>{{/graduates}}";
+    var html = Mustache.to_html(grad_template, response);
+    $(".map-card-container").html(html);
+
   }
   }
