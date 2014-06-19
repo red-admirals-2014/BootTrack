@@ -16,12 +16,12 @@ Map.prototype = {
   },
 
   showMap: function(response) {
+    $('#map-canvas').show()
     map.initialize()
     locations = response.locations
     for(var i = 1; i<locations.length; i++){
      map.getPins(i)
     }
-    $('#map-canvas').show()
     $(".card-container").html("")
   },
   getPins: function(i){
@@ -41,5 +41,8 @@ Map.prototype = {
     })
     ajaxCall.done(test);
     ajaxCall.fail(test);
+  },
+  showMapCards: function(response){
+    $()
   }
   }
