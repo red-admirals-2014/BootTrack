@@ -7,7 +7,6 @@ module ApplicationHelper
       new_info = client.profile(:url => grad.linked_in , :fields => ['location:(name)', 'positions'])
       location = clean_location(new_info.location.name)
       grad.update_attributes(employer: new_info.positions.all[0].company.name, title: new_info.positions.all[0].title, location: location)
-
       p '<<<<<<<<<<- Success ->>>>>>>>>>'
     rescue StandardError => e
       p "Error: #{e}"
@@ -22,7 +21,9 @@ module ApplicationHelper
         ApplicationHelper.get_linked_in(graduate)
         i+=1
       end
-      sleep Random.rand(30..1800) if i%100==0
+      time= Random.rand(300..1800) if i%100==0
+      p "sleeping #{time/60} minutes"
+      sleep time
     end
   end
 
