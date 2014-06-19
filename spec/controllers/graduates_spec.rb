@@ -7,9 +7,9 @@
        expect(response.status).to eq(200)
      end
      it "gives error on no params" do
-      pending "There's no error condition built into the code"
 
-      get :search,  {}
+
+      get :search
       expect(response.status).to eq(500)
     end
   end

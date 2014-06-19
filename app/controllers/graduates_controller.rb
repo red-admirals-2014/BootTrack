@@ -4,10 +4,14 @@ class GraduatesController < ApplicationController
   end
 
   def search
-    graduates = Graduate.get_graduates(params[:campus], params[:year])
-    cookies[:search_year] = params[:year]
-    cookies[:search_campus] = params[:campus]
-    render json: { graduates: graduates }.to_json, :status => :ok
+    if params[:year] == nil
+      render text: 'fail', :status => 500
+    else
+      graduates = Graduate.get_graduates(params[:campus], params[:year])
+      cookies[:search_year] = params[:year]
+      cookies[:search_campus] = params[:campus]
+      render json: { graduates: graduates }.to_json, :status => :ok
+  end
   end
 
   def locations
