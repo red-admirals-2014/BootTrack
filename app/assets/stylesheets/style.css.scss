@@ -245,6 +245,34 @@ ul.nav {
       font-size: 11px;
     }
   }
+
+  .contacting2 {
+    display:none;
+    position: absolute;
+    z-index:100;
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    background: #EEE;
+    padding: 20px 30px 20px 30px;
+    font: 12px Georgia, "Times New Roman", Times, serif;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
+    border: 1px solid #DADADA;
+      h2 {
+      font: 25px Georgia, "Times New Roman", Times, serif;
+      padding: 0px 0px 10px 40px;
+      display: block;
+      border-bottom: 1px solid #DADADA;
+      margin: -10px -30px 30px -30px;
+      color: #888;
+      > span {
+        display: block;
+        font-size: 11px;
+      }
+    }
+  }
+
   label {
     display: block;
     margin: 0px 0px 5px;
