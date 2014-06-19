@@ -88,6 +88,15 @@ input[data-comp="button"] {
   margin: 0 auto;
 }
 
+.map-card-container {
+  width: 25%;
+  margin: 0;
+  position: fixed;
+  right: 0;
+  z-index: 10;
+  background-color: red;
+}
+
 .card {
   float: left;
   width: 13.625em;
