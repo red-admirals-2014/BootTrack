@@ -43,6 +43,7 @@ BootTrack.prototype = {
   },
 
  sendEmail: function(e){
+  debugger
   e.preventDefault();
     var request = $.ajax({
         type: 'POST',
