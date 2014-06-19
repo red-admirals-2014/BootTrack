@@ -26,10 +26,10 @@ describe Graduate do
   end
 
   context "get_locations" do
-      it "should return a nested array containing a number and a location name" do
-        # grad = Graduate.new
-      pending
-
+    let!(:graduate){FactoryGirl.create(:graduate)}
+      it "should return graduates that share common locations" do
+        location_get = Graduate.get_locations("San Francisco", "2014")
+        expect(location_get[0].location).to eq(Graduate.find(1).location)
       end
   end
 
