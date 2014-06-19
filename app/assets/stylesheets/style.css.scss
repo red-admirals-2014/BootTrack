@@ -2,6 +2,7 @@ $STANDARD_FONT: 'Roboto';
 $NEORETRODRAW: 'NeoRetroDraw';
 $CARBONO: 'carbono';
 $BAUMANS: 'Baumans';
+$LOBSTER: 'Lobster 1.3';
 
 
 div[data-comp="topbar"] {
@@ -23,8 +24,8 @@ div[data-comp="topbar"] {
 a[data-comp="logo"] {
   text-decoration: none;
   color:white;
-  font-family: $STANDARD_FONT;
-  font-weight: 400;
+  font-family: $LOBSTER;
+  font-size: 35px;
   height: 12.5em;
   width: 12.5em;
 
@@ -77,8 +78,8 @@ h2[data-comp="app-name"] {
   margin: 0;
   font-size: 6em;
   color: black;
-  font-family: ;
-  font-weight: 300;
+  font-family: $LOBSTER;
+  font-weight: 400;
 }
 
 span[data-comp="tag-line"] {
