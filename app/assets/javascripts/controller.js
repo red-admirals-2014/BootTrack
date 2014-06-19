@@ -66,7 +66,6 @@ BootTrack.prototype = {
  },
 
  sendEmailFromMap: function(e){
-  debugger
   e.preventDefault();
     var request = $.ajax({
           type: 'POST',
@@ -103,7 +102,7 @@ View.prototype = {
   showGrads: function(res){
     $('[data-comp="topbar"]').show();
     $('.hidable').hide();
-    var grad_template = "{{#graduates}}<div class='card'><img src='{{picture}}'><h3>{{name}}</h3>DBC {{campus}}<br>{{start_date}}<br>{{title}} at <br>{{employer}}<br>{{location}}<br><br><button id={{id}} class='contact'>Contact Me!</button></div>{{/graduates}}";
+    var grad_template = "{{#graduates}}<div class='card'><img src='{{picture}}'><h3>{{name}}</h3>DBC {{campus}}<br>{{start_date}}<br>{{title}}<br>{{employer}}<br>{{location}}<br><br><button id={{id}} class='contact'>Contact Me!</button></div>{{/graduates}}";
     var html = Mustache.to_html(grad_template, res);
     $(".card-container").html(html);
   },

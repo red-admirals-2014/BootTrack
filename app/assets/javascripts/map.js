@@ -21,6 +21,7 @@ Map.prototype = {
      map.getPins(i)
     }
     $(".card-container").html("")
+    $('.contacting').hide();
   },
   getPins: function(i){
     var myLatlng = new google.maps.LatLng(locations[i].latitude,locations[i].longitude)
