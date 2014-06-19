@@ -1,21 +1,25 @@
+$STANDARD_FONT: 'Roboto';
+
 div[data-comp="topbar"] {
   border-bottom: 1px solid black;
   width: 100%;
   height: 5em;
-  background-color: black;
   color: white;
   line-height: 5em;
   overflow: hidden;
   font-size: 1.2em;
   display: none;
-  font-family: Roboto;
+  font-family: $STANDARD_FONT;
   font-weight: 400;
+  background-color: black;
+  margin: 0 auto;
+
 }
 
 a[data-comp="logo"] {
   text-decoration: none;
   color:white;
-  font-family: Roboto;
+  font-family: $STANDARD_FONT;
   font-weight: 400;
   height: 12.5em;
   width: 12.5em;
@@ -61,7 +65,7 @@ h2[data-comp="app-name"] {
   margin: 0;
   font-size: 6em;
   color: black;
-  font-family: 'Roboto';
+  font-family: $STANDARD_FONT;
   font-weight: 300;
 }
 
@@ -69,7 +73,7 @@ span[data-comp="tag-line"] {
   margin: 0;
   font-size: 2em;
   color: black;
-  font-family: 'Roboto';
+  font-family: $STANDARD_FONT;
   font-weight: 300;
 }
 
@@ -98,15 +102,22 @@ input[data-comp="button"] {
   float: left;
   width: 13.625em;
   height: 20em;
-  background-color: white;
+  background-color: rgba(10, 10, 10, 0.5);
   border-radius: .625em;
   border: 1px solid black;
   margin: .625em;
-  box-shadow: .375em .375em .188em black;
+  // box-shadow: .375em .375em .188em black;
+  color: white;
+  font-family: $STANDARD_FONT;
+  font-weight: 100;
   img {
     margin-top: .625em;
     border: 2px solid grey;
     border-radius: .313em;
+  }
+  h3 {
+    font-family: $STANDARD_FONT;
+    font-weight: 400;
   }
 }
 
@@ -134,7 +145,7 @@ ul.nav {
   float: right;
   margin: 0 40px;
   padding: 0;
-  font-family: Roboto;
+  font-family: $STANDARD_FONT;
   font-weight: 300;
   li {
     height: 12.5em;
@@ -163,6 +174,24 @@ ul.nav {
   height: 300px;
   width: 400px;
   border: 2px solid black;
+}
+
+.contact {
+  font-family: $STANDARD_FONT;
+  font-weight: 300;
+  float: right;
+  background-color: #308446;
+  color: white;
+  border: .15em solid white;
+  border-radius: .313em;
+  height: 2.125em;
+  width: 7.5em;
+  margin-top: 1.5em;
+  margin-right: 3.75em;
+  &:hover {
+    border: none;
+    border-radius: .313em;
+  }
 }
 
 .x-button {
