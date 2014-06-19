@@ -108,6 +108,7 @@ input[data-comp="button"] {
   z-index: 10;
   background-color: red;
   overflow: scroll;
+  overflow-x: hidden;
   display: none;
 }
 
@@ -223,25 +224,24 @@ ul.nav {
 }
 
 .contacting {
-  display:none;
+  display: none;
   position: absolute;
   width: 400px;
   margin-right: auto;
   margin-left: auto;
-  background: #EEE;
+  background: white;
   padding: 20px 30px 20px 30px;
-  font: 12px Georgia, "Times New Roman", Times, serif;
   color: #888;
   text-shadow: 1px 1px 1px #FFF;
   border: 1px solid #DADADA;
   h2 {
-    font: 25px Georgia, "Times New Roman", Times, serif;
+    font-family: $STANDARD_FONT;
     padding: 0px 0px 10px 40px;
     display: block;
     border-bottom: 1px solid #DADADA;
     margin: -10px -30px 30px -30px;
     color: #888;
-    > span {
+     span {
       display: block;
       font-size: 11px;
     }
@@ -269,7 +269,7 @@ ul.nav {
       outline: 0 none;
       padding: 3px 3px 3px 5px;
       width: 70%;
-      font: normal 12px / 12px Georgia, "Times New Roman", Times, serif;
+      font: normal 12px / 12px $STANDARD_FONT;
     }
   }
   textarea {
@@ -282,7 +282,7 @@ ul.nav {
     outline: 0 none;
     padding: 3px 3px 3px 5px;
     width: 70%;
-    font: normal 12px / 12px Georgia, "Times New Roman", Times, serif;
+    font: normal 12px / 12px $STANDARD_FONT;
   }
   select {
     border: 1px solid #DADADA;
@@ -294,7 +294,7 @@ ul.nav {
     outline: 0 none;
     padding: 3px 3px 3px 5px;
     width: 70%;
-    font: normal 12px / 12px Georgia, "Times New Roman", Times, serif;
+    font: normal 12px / 12px $STANDARD_FONT;
     background: white url('down-arrow.png') no-repeat right;
     background: white url('down-arrow.png') no-repeat right;
     appearance: none;
