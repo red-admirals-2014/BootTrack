@@ -9,7 +9,17 @@ div[data-comp="topbar"] {
   font-size: 1.2em;
   display: none;
   font-family: Roboto;
-  font-weight: 300;
+  font-weight: 400;
+}
+
+a[data-comp="logo"] {
+  text-decoration: none;
+  color:white;
+  font-family: Roboto;
+  font-weight: 400;
+  height: 12.5em;
+  width: 12.5em;
+
 }
 
 .blur {
@@ -60,7 +70,7 @@ span[data-comp="tag-line"] {
   font-size: 2em;
   color: black;
   font-family: 'Roboto';
-  font-weight: 100;
+  font-weight: 300;
 }
 
 input[data-comp="button"] {
@@ -78,10 +88,6 @@ input[data-comp="button"] {
     border-radius: .313em;
   }
 }
-
-// footer {
-//   position: absolute;
-// }
 
 .card-container {
   width: 75%;
