@@ -13,6 +13,7 @@ BootTrack.prototype = {
     $('.card-container').on('click', this.view.contact, this.showForm)
     $('.contacting').on('click', this.view.x_button, this.hideForm)
     $('.contact-form').on('click', this.view.email_button, this.sendEmail)
+    $('.map-card-container').on('click', '.card', this.showMapForm) // trying to show form on map
   },
 
   getGraduates: function(e){
@@ -39,12 +40,16 @@ BootTrack.prototype = {
     view.displayForm(id);
   },
 
+  showMapForm: function(e){ // trying to display form on map view
+    id = this.id
+    view.displayMapForm(id);
+  },
+
    hideForm: function(){
     view.nixForm();
   },
 
  sendEmail: function(e){
-  debugger
   e.preventDefault();
     var request = $.ajax({
         type: 'POST',
@@ -74,7 +79,9 @@ View.prototype = {
     $(".card-container").html("")
     $('.hidable').show()
     $('[data-comp="topbar"]').hide();
-  },
+    $('.contacting').hide();
+    $('[data-comp="contacting2"]').hide();
+      },
 
   showGrads: function(res){
     $('[data-comp="topbar"]').show();
@@ -88,6 +95,11 @@ View.prototype = {
     $('.contacting').show();
     $('input.has_id').attr("value", id)
   },
+
+   displayMapForm: function(id){  // Trying to display form on map view
+    $('[data-comp="contacting2"]').show();
+    $('input.has_id').attr("value", id)
+   },
 
   nixForm: function(){
     $('.contacting').hide();

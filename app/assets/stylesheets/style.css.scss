@@ -59,6 +59,14 @@ div {
     margin: 0 auto;
     background-color: rgba(10, 10, 10, 0.5);
   }
+  &[data-comp="contacting2"] {
+    display: none;
+    z-index: 100;
+    position: absolute;
+    background-color: beige;
+    left: 725px;
+    top: 106px;
+  }
 }
 
 h2[data-comp="app-name"] {
@@ -114,7 +122,7 @@ input[data-comp="button"] {
 .card {
   float: left;
   width: 13.625em;
-  height: 22em;
+  height: 23em;
   background-color: rgba(10, 10, 10, 0.5);
   border-radius: .625em;
   border: 1px solid black;
@@ -178,17 +186,6 @@ ul.nav {
   }
 }
 
-.contacting {
-  display: none;
-  position: absolute;
-  background-color: beige;
-  left: 400px;
-  top: 200px;
-  height: 300px;
-  width: 400px;
-  border: 2px solid black;
-}
-
 .contact {
   font-family: $STANDARD_FONT;
   font-weight: 300;
@@ -231,6 +228,106 @@ ul.nav {
   font-family: Roboto;
   font-weight: 100;
   color: white;
+}
+
+.contacting {
+  display:none;
+  position: absolute;
+  width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+  background: #EEE;
+  padding: 20px 30px 20px 30px;
+  font: 12px Georgia, "Times New Roman", Times, serif;
+  color: #888;
+  text-shadow: 1px 1px 1px #FFF;
+  border: 1px solid #DADADA;
+  h2 {
+    font: 25px Georgia, "Times New Roman", Times, serif;
+    padding: 0px 0px 10px 40px;
+    display: block;
+    border-bottom: 1px solid #DADADA;
+    margin: -10px -30px 30px -30px;
+    color: #888;
+    > span {
+      display: block;
+      font-size: 11px;
+    }
+  }
+
+
+  label {
+    display: block;
+    margin: 0px 0px 5px;
+    > span {
+      float: left;
+      width: 80px;
+      text-align: right;
+      padding-right: 10px;
+      margin-top: 10px;
+      color: #888;
+    }
+  }
+
+  input {
+    &[type="text"], &[type="email"] {
+      border: 1px solid #DADADA;
+      color: #888;
+      height: 24px;
+      margin-bottom: 16px;
+      margin-right: 6px;
+      margin-top: 2px;
+      outline: 0 none;
+      padding: 3px 3px 3px 5px;
+      width: 70%;
+      font: normal 12px / 12px Georgia, "Times New Roman", Times, serif;
+    }
+  }
+  textarea {
+    border: 1px solid #DADADA;
+    color: #888;
+    height: 24px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    width: 70%;
+    font: normal 12px / 12px Georgia, "Times New Roman", Times, serif;
+  }
+  select {
+    border: 1px solid #DADADA;
+    color: #888;
+    height: 24px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    width: 70%;
+    font: normal 12px / 12px Georgia, "Times New Roman", Times, serif;
+    background: white url('down-arrow.png') no-repeat right;
+    background: white url('down-arrow.png') no-repeat right;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    width: 72%;
+    height: 30px;
+  }
+  textarea {
+    height: 100px;
+  }
+  .button {
+    background: #E48F8F;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    &:hover {
+      background: #cf7a7a;
+    }
+  }
 }
 
 /*Gayatri Sans Serif
