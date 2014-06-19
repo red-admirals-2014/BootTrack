@@ -107,7 +107,7 @@ input[data-comp="button"] {
 }
 
 .map-card-container {
-  width: 20%;
+  width: 18%;
   height: 600px;
   margin: 0;
   position: fixed;
@@ -116,6 +116,7 @@ input[data-comp="button"] {
   z-index: 10;
   overflow: scroll;
   display: none;
+  overflow-x: hidden;
 }
 
 .card {
