@@ -27,7 +27,16 @@ describe Graduate do
 
   context "get_locations" do
       it "should return a nested array containing a number and a location name" do
-        pending "this method's functionality is not implemented yet"
+        # grad = Graduate.new
+      pending
+
       end
+  end
+
+  context "get_graduates" do
+    let!(:graduate){FactoryGirl.create(:graduate)}
+    it "should return a colleciton of graduates based on selected criteria" do
+      expect(Graduate.get_graduates("San Francisco", "2014")).to include(Graduate.find_by_name("Tyler Waneka"))
+    end
   end
 end
