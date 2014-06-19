@@ -28,7 +28,7 @@ Map.prototype = {
         var myLatlng = new google.maps.LatLng(locations[i].latitude,locations[i].longitude)
         var marker = new google.maps.Marker({
         position: myLatlng,
-        title:locations[i].location,
+        tittle: locations[i].location+', Number of Boots: '+locations[i].grads_number,
         animation: google.maps.Animation.DROP,
         map: bootMap});
         google.maps.event.addListener(marker, 'click',map.getGraduatesByLocation);
@@ -42,5 +42,4 @@ Map.prototype = {
     ajaxCall.done(test);
     ajaxCall.fail(test);
   }
-
   }

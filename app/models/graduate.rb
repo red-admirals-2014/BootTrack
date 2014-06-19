@@ -2,7 +2,7 @@ require 'json'
 
 class Graduate < ActiveRecord::Base
   include ApplicationHelper
-  attr_accessible :cohort_id, :name, :linked_in, :email, :location, :employer, :picture, :latitude, :longitude
+  attr_accessible :cohort_id, :name, :title, :linked_in, :email, :location, :employer, :picture, :latitude, :longitude
   validates :email, uniqueness: true
   belongs_to :cohort
   geocoded_by :location
