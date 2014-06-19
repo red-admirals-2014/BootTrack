@@ -8,6 +8,7 @@ BootTrack.prototype = {
   start: function(){
     $('form.index-search').on('submit', this.getGraduates)
     $('[data-comp="topbar"]').on('click', '[data-comp="search-again"]', this.view.searchAgain)
+    $('[data-comp="topbar"]').on('click', '[data-comp="logo"]', this.view.searchAgain)
     $('[data-comp="topbar"]').on('click', '[data-comp="view-map"]', this.getLocation)
     $('.card-container').on('click', this.view.contact, this.showForm)
     $('.contacting').on('click', this.view.x_button, this.hideForm)
@@ -50,7 +51,7 @@ BootTrack.prototype = {
         url: '/graduates/mail',
         data: $('form.contact-form').serialize(),
         success: function (data) {
-            alert('ok');
+            alert('Your email has been sent!');
         }
     });
     view.nixForm();
