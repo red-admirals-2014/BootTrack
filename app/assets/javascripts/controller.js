@@ -68,6 +68,7 @@ View.prototype = {
   searchAgain: function(e){
     e.preventDefault();
     $('#map-canvas').hide()
+    $('.map-card-container').hide()
     $('#map-canvas').html("")
     $(".card-container").html("")
     $('.hidable').show()
