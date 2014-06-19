@@ -28,12 +28,15 @@ Map.prototype = {
     $(".card-container").html("")
   },
   getPins: function(i){
-    //debugger
         var myLatlng = new google.maps.LatLng(locations[i].latitude,locations[i].longitude)
         var marker = new google.maps.Marker({
         position: myLatlng,
-        title:locations[i].location,
+        tittle: locations[i].location+', Number of Boots: '+locations[i].grads_number,
         animation: google.maps.Animation.DROP,
         map: mapo});
+        google.maps.event.addListener(marker, 'click', function() {
+        mapo.setZoom(8);
+        mapo.setCenter(marker.getPosition());
+  });
       }
   }

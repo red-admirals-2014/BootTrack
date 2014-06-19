@@ -6,6 +6,6 @@ class AlumMailer < ActionMailer::Base
     @message = message
     @grad = grad
     @email = email
-    mail to: @grad.email, subject: "Someone wants to contact you about DBC!"
+    mail to: grad.email, subject: "Someone wants to contact you about DBC!"
   end
 end

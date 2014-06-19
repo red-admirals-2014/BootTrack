@@ -8,4 +8,6 @@ BootTrack::Application.routes.draw do
 
   post 'graduates/mail', to: 'graduates#email'
 
+  get 'graduates/update', to: 'graduates#update'
+
 end
