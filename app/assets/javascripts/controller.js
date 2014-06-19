@@ -8,6 +8,7 @@ BootTrack.prototype = {
   start: function(){
     $('form.index-search').on('submit', this.getGraduates)
     $('[data-comp="topbar"]').on('click', '[data-comp="search-again"]', this.view.searchAgain)
+    $('[data-comp="topbar"]').on('click', '[data-comp="logo"]', this.view.searchAgain)
     $('[data-comp="topbar"]').on('click', '[data-comp="view-map"]', this.getLocation)
     $('.card-container').on('click', this.view.contact, this.showForm)
     $('.contacting').on('click', this.view.x_button, this.hideForm)
@@ -28,7 +29,7 @@ BootTrack.prototype = {
   getLocation: function(e){
     e.preventDefault()
     var ajaxCall = $.ajax({
-      url: '/graduates/location',
+      url: '/graduates/locations',
       type: 'get'
     })
     ajaxCall.done(map.showMap);
@@ -51,7 +52,7 @@ BootTrack.prototype = {
         url: '/graduates/mail',
         data: $('form.contact-form').serialize(),
         success: function (data) {
-            alert('ok');
+            alert('Your email has been sent!');
         }
     });
     view.nixForm();
@@ -69,6 +70,8 @@ View.prototype = {
   searchAgain: function(e){
     e.preventDefault();
     $('#map-canvas').hide()
+    $('.map-card-container').hide()
+    $('#map-canvas').html("")
     $(".card-container").html("")
     $('.hidable').show()
     $('[data-comp="topbar"]').hide();
@@ -77,7 +80,7 @@ View.prototype = {
   showGrads: function(res){
     $('[data-comp="topbar"]').show();
     $('.hidable').hide();
-    var grad_template = "{{#graduates}}<div class='card'><img src='{{picture}}'><h3>{{name}}</h3>DBC {{campus}}<br>{{start_date}}<br>{{employer}}<br>{{location}}<br><br><button id={{id}} class='contact'>Contact Me!</button></div>{{/graduates}}";
+    var grad_template = "{{#graduates}}<div class='card'><img src='{{picture}}'><h3>{{name}}</h3>DBC {{campus}}<br>{{start_date}}<br>{{title}} at <br>{{employer}}<br>{{location}}<br><br><button id={{id}} class='contact'>Contact Me!</button></div>{{/graduates}}";
     var html = Mustache.to_html(grad_template, res);
     $(".card-container").html(html);
   },

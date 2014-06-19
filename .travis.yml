@@ -10,6 +10,7 @@ script: bundle exec rspec spec
 # Set up database
 before_script:
   - psql -c 'create database tracker_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
   - DB=postgresql
   - bundle exec rake db:schema:load
 # You may need this for rails 3.2 applications
