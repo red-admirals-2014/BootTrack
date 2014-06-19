@@ -80,7 +80,8 @@ View.prototype = {
     $('.hidable').show()
     $('[data-comp="topbar"]').hide();
     $('.contacting').hide();
-  },
+    $('[data-comp="contacting2"]').hide();
+      },
 
   showGrads: function(res){
     $('[data-comp="topbar"]').show();
@@ -96,8 +97,7 @@ View.prototype = {
   },
 
    displayMapForm: function(id){  // Trying to display form on map view
-    debugger
-    $('.contacting2').show();
+    $('[data-comp="contacting2"]').show();
     $('input.has_id').attr("value", id)
    },
 
