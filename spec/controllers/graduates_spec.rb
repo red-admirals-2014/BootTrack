@@ -6,7 +6,9 @@ describe GraduatesController do
        get :search,  {campus: "San Francisco", year: "2014"}
        expect(response.status).to eq(200)
     end
-    xit "gives error on bad params" do
+    it "gives error on bad params" do
+      pending "There's no error condition built into the code"
+
        get :search,  {campus: "Chicago", year: "2012"}
        expect(response.status).to eq(404)
     end
