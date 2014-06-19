@@ -34,9 +34,5 @@ describe Graduate do
         expect(location_get[0].location).to eq(Graduate.find(1).location)
       end
   end
-  context "update_geolocations" do
-    it "should update the geolocations of all graduates" do
-      pending
-    end
-  end
+
 end

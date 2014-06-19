@@ -11,7 +11,7 @@ class GraduatesController < ApplicationController
       cookies[:search_year] = params[:year]
       cookies[:search_campus] = params[:campus]
       render json: { graduates: graduates }.to_json, :status => :ok
-  end
+    end
   end
 
   def locations
@@ -29,6 +29,7 @@ class GraduatesController < ApplicationController
     location = (params[:location]).gsub!(/, Number of Boots: .*/, '')
     graduates = Graduate.by_location(params[:location])
     render json: {graduates: graduates}
+
   end
 
   def update
