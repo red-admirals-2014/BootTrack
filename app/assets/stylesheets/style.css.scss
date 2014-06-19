@@ -71,12 +71,12 @@ div {
     background-color: beige;
     left: 725px;
     top: 106px;
-    width: 400px;
+    width: 326px;
     margin-right: auto;
     margin-left: auto;
     background: #EEE;
     padding: 20px 30px 20px 30px;
-    font: 12px Georgia, "Times New Roman", Times, serif;
+    font: 15px Georgia, "Times New Roman", Times, serif;
     color: #888;
     text-shadow: 1px 1px 1px #FFF;
     border: 1px solid #DADADA;
@@ -232,12 +232,13 @@ ul.nav {
 }
 
 .x-button {
-  left: 376px;
+  left: 27.4em;
+  top:0em;
   position: absolute;
 }
 
 .x-button2 {
-  left: 269px;
+  left: 24.2em;
   top: 0px;
   position: absolute;
 }
@@ -266,6 +267,7 @@ ul.nav {
 .contacting {
   display: none;
   position: absolute;
+  left: 29em;
   width: 400px;
   margin-right: auto;
   margin-left: auto;

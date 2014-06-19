@@ -66,7 +66,6 @@ BootTrack.prototype = {
  },
 
  sendEmailFromMap: function(e){
-  debugger
   e.preventDefault();
     var request = $.ajax({
           type: 'POST',
