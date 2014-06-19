@@ -2,7 +2,7 @@ require 'json'
 
 class Graduate < ActiveRecord::Base
   include ApplicationHelper
-  attr_accessible :cohort_id, :name, :linked_in, :email, :location, :employer, :picture, :latitude, :longitude
+  attr_accessible :cohort_id, :name, :title, :linked_in, :email, :location, :employer, :picture, :latitude, :longitude
   validates :email, uniqueness: true
   belongs_to :cohort
   geocoded_by :location
@@ -13,7 +13,7 @@ class Graduate < ActiveRecord::Base
     year = nil if year == 'default'
     campus ||=Cohort.pluck(:campus).uniq
     year||=Cohort.pluck('extract(year  from start_date)').uniq
-    graduates =  Graduate.joins(:cohort).where(cohorts: {campus:campus}).select("graduates.*, cohorts.start_date as start_date, cohorts.campus as campus").order('start_date DESC').where('extract(year from start_date) IN (?)', year).limit(300)
+    graduates =  Graduate.joins(:cohort).where(cohorts: {campus:campus}).select("graduates.*, cohorts.start_date as start_date, cohorts.campus as campus").order('start_date DESC').where('extract(year from start_date) IN (?)', year).limit(100)
     return graduates
   end
 
@@ -26,12 +26,8 @@ class Graduate < ActiveRecord::Base
     return graduates
   end
 
-  def self.update_geolocations
-    Graduate.all.each do |graduate|
-      graduate.save
-      p graduate.longitude
-    end
-
+  def self.by_location(location)
+    Graduate.joins(:cohort).where(location: location).select("graduates.*, cohorts.start_date as start_date, cohorts.campus as campus").order('start_date DESC').limit(100)
   end
 
 end

@@ -14,6 +14,7 @@ gem 'gravatar-ultimate'
 gem 'whenever', :require => false
 gem 'timecop'
 gem 'geocoder'
+gem 'rails_12factor', group: :production
 
 
 
@@ -50,3 +51,5 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby'
 
 gem 'debugger'
+
+ruby '2.0.0'

@@ -28,7 +28,7 @@ BootTrack.prototype = {
   getLocation: function(e){
     e.preventDefault()
     var ajaxCall = $.ajax({
-      url: '/graduates/location',
+      url: '/graduates/locations',
       type: 'get'
     })
     ajaxCall.done(map.showMap);
@@ -44,6 +44,7 @@ BootTrack.prototype = {
   },
 
  sendEmail: function(e){
+  debugger
   e.preventDefault();
     var request = $.ajax({
         type: 'POST',
@@ -68,6 +69,7 @@ View.prototype = {
   searchAgain: function(e){
     e.preventDefault();
     $('#map-canvas').hide()
+    $('#map-canvas').html("")
     $(".card-container").html("")
     $('.hidable').show()
     $('[data-comp="topbar"]').hide();
