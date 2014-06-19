@@ -1,0 +1,243 @@
+Connecting to database specified by database.yml
+
+
+Started POST "/" for 127.0.0.1 at 2014-06-19 00:17:55 -0700
+Processing by GraduatesController#index as HTML
+  Parameters: {"user_name"=>"teeest", "user_email"=>"test", "message"=>"testtttt", "id"=>"988"}
+WARNING: Can't verify CSRF token authenticity
+  Rendered graduates/index.html.erb within layouts/application (1.3ms)
+Warning. Error encountered while saving cache /Users/Melissa/Desktop/BootTrack/tmp/cache/sass/a0c90b0a4e23622223f7c9a7006ca1e7d5092ae2/style.css.scssc: can't dump anonymous class #<Class:0x0000010479c868>
+
+Compiled style.css  (43ms)  (pid 75073)
+Compiled application.css  (1ms)  (pid 75073)
+Compiled map.js  (0ms)  (pid 75073)
+Compiled application.js  (15ms)  (pid 75073)
+Completed 200 OK in 126.9ms (Views: 126.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-06-19 00:17:55 -0700
+Served asset /normalize.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-19 00:17:55 -0700
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-19 00:17:55 -0700
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/mustache.js?body=1" for 127.0.0.1 at 2014-06-19 00:17:55 -0700
+Served asset /mustache.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-19 00:17:55 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-06-19 00:17:55 -0700
+Served asset /style.css - 200 OK (2ms)
+
+
+Started GET "/assets/controller.js?body=1" for 127.0.0.1 at 2014-06-19 00:17:55 -0700
+Served asset /controller.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/initialize.js?body=1" for 127.0.0.1 at 2014-06-19 00:17:55 -0700
+Served asset /initialize.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/map.js?body=1" for 127.0.0.1 at 2014-06-19 00:17:55 -0700
+Served asset /map.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-19 00:17:55 -0700
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/sf.jpg" for 127.0.0.1 at 2014-06-19 00:17:55 -0700
+Served asset /sf.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/graduates/search?campus=default&year=default" for 127.0.0.1 at 2014-06-19 00:18:19 -0700
+Processing by GraduatesController#search as */*
+  Parameters: {"campus"=>"default", "year"=>"default"}
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "cohorts"."campus" FROM "cohorts" [0m
+  [1m[35mSQL (0.5ms)[0m  SELECT extract(year from start_date) FROM "cohorts" 
+  [1m[36mGraduate Load (3.3ms)[0m  [1mSELECT graduates.*, cohorts.start_date as start_date, cohorts.campus as campus FROM "graduates" INNER JOIN "cohorts" ON "cohorts"."id" = "graduates"."cohort_id" WHERE "cohorts"."campus" IN ('Chicago', 'San Francisco', 'New York City') AND (extract(year from start_date) IN ('2014','2013','2012','2011')) ORDER BY start_date DESC LIMIT 100[0m
+Completed 200 OK in 137.0ms (Views: 0.1ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/graduates/locations" for 127.0.0.1 at 2014-06-19 00:18:32 -0700
+Processing by GraduatesController#locations as */*
+  [1m[35mSQL (0.2ms)[0m  SELECT "cohorts"."campus" FROM "cohorts" 
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT extract(year from start_date) FROM "cohorts" [0m
+  [1m[35mGraduate Load (1.4ms)[0m  SELECT latitude,longitude,location, count(name) as grads_number FROM "graduates" INNER JOIN "cohorts" ON "cohorts"."id" = "graduates"."cohort_id" WHERE "cohorts"."campus" IN ('Chicago', 'San Francisco', 'New York City') AND (extract(year from start_date) IN ('2014','2013','2012','2011')) GROUP BY latitude,longitude,location
+Completed 200 OK in 5.1ms (Views: 0.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/graduates/by_location?location=San%20Francisco" for 127.0.0.1 at 2014-06-19 00:18:35 -0700
+Processing by GraduatesController#by_location as */*
+  Parameters: {"location"=>"San Francisco"}
+  [1m[36mGraduate Load (1.0ms)[0m  [1mSELECT graduates.*, cohorts.start_date as start_date, cohorts.campus as campus FROM "graduates" INNER JOIN "cohorts" ON "cohorts"."id" = "graduates"."cohort_id" WHERE "graduates"."location" = 'San Francisco' ORDER BY start_date DESC LIMIT 100[0m
+Completed 200 OK in 17.2ms (Views: 2.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/graduates/by_location?location=Chicago" for 127.0.0.1 at 2014-06-19 00:18:51 -0700
+Processing by GraduatesController#by_location as */*
+  Parameters: {"location"=>"Chicago"}
+  [1m[35mGraduate Load (0.8ms)[0m  SELECT graduates.*, cohorts.start_date as start_date, cohorts.campus as campus FROM "graduates" INNER JOIN "cohorts" ON "cohorts"."id" = "graduates"."cohort_id" WHERE "graduates"."location" = 'Chicago' ORDER BY start_date DESC LIMIT 100
+Completed 200 OK in 2.6ms (Views: 1.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/graduates/by_location?location=Chicago" for 127.0.0.1 at 2014-06-19 00:18:58 -0700
+Processing by GraduatesController#by_location as */*
+  Parameters: {"location"=>"Chicago"}
+  [1m[36mGraduate Load (0.9ms)[0m  [1mSELECT graduates.*, cohorts.start_date as start_date, cohorts.campus as campus FROM "graduates" INNER JOIN "cohorts" ON "cohorts"."id" = "graduates"."cohort_id" WHERE "graduates"."location" = 'Chicago' ORDER BY start_date DESC LIMIT 100[0m
+Completed 200 OK in 2.6ms (Views: 1.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/graduates/mail" for 127.0.0.1 at 2014-06-19 00:19:09 -0700
+Processing by GraduatesController#email as */*
+  Parameters: {"user_name"=>"test", "user_email"=>"test", "message"=>"test", "id"=>"971"}
+  [1m[35mGraduate Load (12.9ms)[0m  SELECT "graduates".* FROM "graduates" WHERE "graduates"."id" = $1 LIMIT 1  [["id", 971]]
+  Rendered alum_mailer/contact_attempt.html.erb (0.4ms)
+
+Sent mail to alosada@gmail.com (2591.6ms)
+Date: Thu, 19 Jun 2014 00:19:09 -0700
+From: BootsTrack@gmail.com
+To: alosada@gmail.com
+Message-ID: <53a28eedec2ec_12541823ab98436759@Melissas-MacBook-Pro.local.mail>
+Subject: Someone wants to contact you about DBC!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <h2>Hello, Alejandro Losada</h2>
+  <h4>test would like to contact you and ask you about DBC.</h4>
+  <p>Message sent:</p>
+    <p>test</p>
+  <p>From:</p>
+    <p>test</p>
+  <p>Thank you for replying!</p>
+</html>
+
+
+
+  Rendered text template (0.0ms)
+Completed 200 OK in 2672.4ms (Views: 10.1ms | ActiveRecord: 13.4ms)
+
+
+Started GET "/graduates/search?campus=San+Francisco&year=2014" for 127.0.0.1 at 2014-06-19 00:19:25 -0700
+Processing by GraduatesController#search as */*
+  Parameters: {"campus"=>"San Francisco", "year"=>"2014"}
+  [1m[36mGraduate Load (1.6ms)[0m  [1mSELECT graduates.*, cohorts.start_date as start_date, cohorts.campus as campus FROM "graduates" INNER JOIN "cohorts" ON "cohorts"."id" = "graduates"."cohort_id" WHERE "cohorts"."campus" = 'San Francisco' AND (extract(year from start_date) IN ('2014')) ORDER BY start_date DESC LIMIT 100[0m
+Completed 200 OK in 28.7ms (Views: 0.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/graduates/search?campus=New+York+City&year=2014" for 127.0.0.1 at 2014-06-19 00:19:35 -0700
+Processing by GraduatesController#search as */*
+  Parameters: {"campus"=>"New York City", "year"=>"2014"}
+  [1m[35mGraduate Load (1.9ms)[0m  SELECT graduates.*, cohorts.start_date as start_date, cohorts.campus as campus FROM "graduates" INNER JOIN "cohorts" ON "cohorts"."id" = "graduates"."cohort_id" WHERE "cohorts"."campus" = 'New York City' AND (extract(year from start_date) IN ('2014')) ORDER BY start_date DESC LIMIT 100
+Completed 200 OK in 38.9ms (Views: 0.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/graduates/search?campus=Chicago&year=2013" for 127.0.0.1 at 2014-06-19 00:19:53 -0700
+Processing by GraduatesController#search as */*
+  Parameters: {"campus"=>"Chicago", "year"=>"2013"}
+  [1m[36mGraduate Load (2.8ms)[0m  [1mSELECT graduates.*, cohorts.start_date as start_date, cohorts.campus as campus FROM "graduates" INNER JOIN "cohorts" ON "cohorts"."id" = "graduates"."cohort_id" WHERE "cohorts"."campus" = 'Chicago' AND (extract(year from start_date) IN ('2013')) ORDER BY start_date DESC LIMIT 100[0m
+Completed 200 OK in 38.7ms (Views: 0.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/graduates/search?campus=Chicago&year=2013" for 127.0.0.1 at 2014-06-19 00:20:03 -0700
+Processing by GraduatesController#search as */*
+  Parameters: {"campus"=>"Chicago", "year"=>"2013"}
+  [1m[35mGraduate Load (1.4ms)[0m  SELECT graduates.*, cohorts.start_date as start_date, cohorts.campus as campus FROM "graduates" INNER JOIN "cohorts" ON "cohorts"."id" = "graduates"."cohort_id" WHERE "cohorts"."campus" = 'Chicago' AND (extract(year from start_date) IN ('2013')) ORDER BY start_date DESC LIMIT 100
+Completed 200 OK in 87.3ms (Views: 0.1ms | ActiveRecord: 1.4ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/" for 127.0.0.1 at 2014-06-19 00:30:26 -0700
+Processing by GraduatesController#index as HTML
+  Parameters: {"user_name"=>"teeest", "user_email"=>"test", "message"=>"testtttt", "id"=>"988"}
+WARNING: Can't verify CSRF token authenticity
+  Rendered graduates/index.html.erb within layouts/application (1.6ms)
+Warning. Error encountered while saving cache /Users/Melissa/Desktop/BootTrack/tmp/cache/sass/a0c90b0a4e23622223f7c9a7006ca1e7d5092ae2/style.css.scssc: can't dump anonymous class #<Class:0x000001038848a8>
+
+Compiled style.css  (38ms)  (pid 75393)
+Compiled application.css  (1ms)  (pid 75393)
+Compiled controller.js  (0ms)  (pid 75393)
+Compiled application.js  (13ms)  (pid 75393)
+Completed 200 OK in 124.2ms (Views: 123.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-06-19 00:30:26 -0700
+Served asset /normalize.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-06-19 00:30:26 -0700
+Served asset /style.css - 200 OK (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-19 00:30:26 -0700
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-19 00:30:26 -0700
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-19 00:30:26 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/initialize.js?body=1" for 127.0.0.1 at 2014-06-19 00:30:26 -0700
+Served asset /initialize.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/controller.js?body=1" for 127.0.0.1 at 2014-06-19 00:30:26 -0700
+Served asset /controller.js - 200 OK (1ms)
+
+
+Started GET "/assets/mustache.js?body=1" for 127.0.0.1 at 2014-06-19 00:30:26 -0700
+Served asset /mustache.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/map.js?body=1" for 127.0.0.1 at 2014-06-19 00:30:26 -0700
+Served asset /map.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-19 00:30:26 -0700
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/sf.jpg" for 127.0.0.1 at 2014-06-19 00:30:26 -0700
+Served asset /sf.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/graduates/search?campus=default&year=default" for 127.0.0.1 at 2014-06-19 00:30:34 -0700
+Processing by GraduatesController#search as */*
+  Parameters: {"campus"=>"default", "year"=>"default"}
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "cohorts"."campus" FROM "cohorts" [0m
+  [1m[35mSQL (0.5ms)[0m  SELECT extract(year from start_date) FROM "cohorts" 
+  [1m[36mGraduate Load (3.0ms)[0m  [1mSELECT graduates.*, cohorts.start_date as start_date, cohorts.campus as campus FROM "graduates" INNER JOIN "cohorts" ON "cohorts"."id" = "graduates"."cohort_id" WHERE "cohorts"."campus" IN ('Chicago', 'San Francisco', 'New York City') AND (extract(year from start_date) IN ('2014','2013','2012','2011')) ORDER BY start_date DESC LIMIT 100[0m
+Completed 200 OK in 141.0ms (Views: 0.1ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/graduates/locations" for 127.0.0.1 at 2014-06-19 00:30:43 -0700
+Processing by GraduatesController#locations as */*
+  [1m[35mSQL (0.2ms)[0m  SELECT "cohorts"."campus" FROM "cohorts" 
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT extract(year from start_date) FROM "cohorts" [0m
+  [1m[35mGraduate Load (1.4ms)[0m  SELECT latitude,longitude,location, count(name) as grads_number FROM "graduates" INNER JOIN "cohorts" ON "cohorts"."id" = "graduates"."cohort_id" WHERE "cohorts"."campus" IN ('Chicago', 'San Francisco', 'New York City') AND (extract(year from start_date) IN ('2014','2013','2012','2011')) GROUP BY latitude,longitude,location
+Completed 200 OK in 4.9ms (Views: 0.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/graduates/by_location?location=San%20Francisco" for 127.0.0.1 at 2014-06-19 00:30:45 -0700
+Processing by GraduatesController#by_location as */*
+  Parameters: {"location"=>"San Francisco"}
+  [1m[36mGraduate Load (0.9ms)[0m  [1mSELECT graduates.*, cohorts.start_date as start_date, cohorts.campus as campus FROM "graduates" INNER JOIN "cohorts" ON "cohorts"."id" = "graduates"."cohort_id" WHERE "graduates"."location" = 'San Francisco' ORDER BY start_date DESC LIMIT 100[0m
+Completed 200 OK in 7.4ms (Views: 2.0ms | ActiveRecord: 0.9ms)
