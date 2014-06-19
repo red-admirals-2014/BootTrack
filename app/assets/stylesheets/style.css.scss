@@ -71,6 +71,27 @@ div {
     background-color: beige;
     left: 725px;
     top: 106px;
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    background: #EEE;
+    padding: 20px 30px 20px 30px;
+    font: 12px Georgia, "Times New Roman", Times, serif;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
+    border: 1px solid #DADADA;
+    h2 {
+      font: 25px Georgia, "Times New Roman", Times, serif;
+      padding: 0px 0px 10px 40px;
+      display: block;
+      border-bottom: 1px solid #DADADA;
+      margin: -10px -30px 30px -30px;
+      color: #888;
+      > span {
+        display: block;
+        font-size: 11px;
+      }
+    }
   }
 }
 
@@ -212,6 +233,12 @@ ul.nav {
 
 .x-button {
   left: 376px;
+  position: absolute;
+}
+
+.x-button2 {
+  left: 269px;
+  top: 0px;
   position: absolute;
 }
 

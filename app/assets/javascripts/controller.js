@@ -12,8 +12,10 @@ BootTrack.prototype = {
     $('[data-comp="topbar"]').on('click', '[data-comp="view-map"]', this.getLocation)
     $('.card-container').on('click', this.view.contact, this.showForm)
     $('.contacting').on('click', this.view.x_button, this.hideForm)
+    $('[data-comp="contacting2"]').on('click', '.x-button2', this.hideForm)
     $('.contact-form').on('click', this.view.email_button, this.sendEmail)
-    $('.map-card-container').on('click', '.card', this.showMapForm) // trying to show form on map
+    $('.map-card-container').on('click', '.card', this.showMapForm)
+    $('[data-comp="main"').on('click', '.send-email', this.sendEmailFromMap)
   },
 
   getGraduates: function(e){
@@ -40,8 +42,8 @@ BootTrack.prototype = {
     view.displayForm(id);
   },
 
-  showMapForm: function(e){ // trying to display form on map view
-    id = this.id
+  showMapForm: function(e){
+    id = this.getElementsByTagName('button')[0].id
     view.displayMapForm(id);
   },
 
@@ -61,6 +63,20 @@ BootTrack.prototype = {
     });
     view.nixForm();
  },
+
+ sendEmailFromMap: function(e){
+  debugger
+  e.preventDefault();
+    var request = $.ajax({
+          type: 'POST',
+          url: '/graduates/mail',
+          data: $('form.contact-form2').serialize(),
+          success: function (data) {
+              alert('Your email has been sent!');
+          }
+    });
+    view.nixForm();
+ }
 
 }
 
@@ -103,6 +119,7 @@ View.prototype = {
 
   nixForm: function(){
     $('.contacting').hide();
+    $('[data-comp="contacting2"]').hide();
   },
 
 };
