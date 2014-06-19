@@ -18,12 +18,6 @@ ActiveRecord::Schema.define(:version => 20140617235659) do
     t.date   "start_date"
   end
 
-  create_table "geolocations", :force => true do |t|
-    t.string "location_string"
-    t.float  "latitude"
-    t.float  "longitude"
-  end
-
   create_table "graduates", :force => true do |t|
     t.integer  "cohort_id"
     t.string   "name"
