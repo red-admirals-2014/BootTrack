@@ -24,6 +24,7 @@ class GraduatesController < ApplicationController
   def by_location
     graduates = Graduate.by_location(params[:location])
     render json: {graduates: graduates}
+  end
 
   def update
     if params[:key]== 'ohcaptainmycaptain'
