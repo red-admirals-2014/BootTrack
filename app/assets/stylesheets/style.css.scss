@@ -1,4 +1,9 @@
 $STANDARD_FONT: 'Roboto';
+$NEORETRODRAW: 'NeoRetroDraw';
+$CARBONO: 'carbono';
+$BAUMANS: 'Baumans';
+$LOBSTER: 'Lobster 1.3';
+
 
 div[data-comp="topbar"] {
   border-bottom: 1px solid black;
@@ -19,8 +24,8 @@ div[data-comp="topbar"] {
 a[data-comp="logo"] {
   text-decoration: none;
   color:white;
-  font-family: $STANDARD_FONT;
-  font-weight: 400;
+  font-family: $LOBSTER;
+  font-size: 35px;
   height: 12.5em;
   width: 12.5em;
 
@@ -94,8 +99,8 @@ h2[data-comp="app-name"] {
   margin: 0;
   font-size: 6em;
   color: black;
-  font-family: $STANDARD_FONT;
-  font-weight: 300;
+  font-family: $LOBSTER;
+  font-weight: 400;
 }
 
 span[data-comp="tag-line"] {
@@ -136,6 +141,7 @@ input[data-comp="button"] {
   top: 6em;
   z-index: 10;
   overflow: scroll;
+  overflow-x: hidden;
   display: none;
   overflow-x: hidden;
 }
@@ -258,25 +264,24 @@ ul.nav {
 }
 
 .contacting {
-  display:none;
+  display: none;
   position: absolute;
   width: 400px;
   margin-right: auto;
   margin-left: auto;
-  background: #EEE;
+  background: white;
   padding: 20px 30px 20px 30px;
-  font: 12px Georgia, "Times New Roman", Times, serif;
   color: #888;
   text-shadow: 1px 1px 1px #FFF;
   border: 1px solid #DADADA;
   h2 {
-    font: 25px Georgia, "Times New Roman", Times, serif;
+    font-family: $STANDARD_FONT;
     padding: 0px 0px 10px 40px;
     display: block;
     border-bottom: 1px solid #DADADA;
     margin: -10px -30px 30px -30px;
     color: #888;
-    > span {
+     span {
       display: block;
       font-size: 11px;
     }
@@ -307,7 +312,7 @@ ul.nav {
       outline: 0 none;
       padding: 3px 3px 3px 5px;
       width: 70%;
-      font: normal 12px / 12px Georgia, "Times New Roman", Times, serif;
+      font: normal 12px / 12px $STANDARD_FONT;
     }
   }
   textarea {
@@ -320,7 +325,7 @@ ul.nav {
     outline: 0 none;
     padding: 3px 3px 3px 5px;
     width: 70%;
-    font: normal 12px / 12px Georgia, "Times New Roman", Times, serif;
+    font: normal 12px / 12px $STANDARD_FONT;
   }
   select {
     border: 1px solid #DADADA;
@@ -332,7 +337,7 @@ ul.nav {
     outline: 0 none;
     padding: 3px 3px 3px 5px;
     width: 70%;
-    font: normal 12px / 12px Georgia, "Times New Roman", Times, serif;
+    font: normal 12px / 12px $STANDARD_FONT;
     background: white url('down-arrow.png') no-repeat right;
     background: white url('down-arrow.png') no-repeat right;
     appearance: none;
