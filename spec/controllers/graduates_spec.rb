@@ -20,7 +20,9 @@
   end
 
   context "#email" do
-
+    it "should send an email to someone" do
+      pending
+    end
   end
 
   context "#by_location" do
